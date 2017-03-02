@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Language" content="zh-CN"/>
+    <meta name="Author" content="滴儿小云"/>
+    <meta name="description" content="描述"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="./css/main.min.css"/>
+    <title>网站标题</title>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.hover3d.js"></script>
+    <script>
+        window.onload = function () {
+            var wrap = document.getElementById('wrap-tab'),
+                pic = document.getElementById('pic').getElementsByTagName("li"),
+                list = document.getElementById('list').getElementsByTagName('li'),
+                index = 0,
+                timer = null;
+
+            // 定义并调用自动播放函数
+            timer = setInterval(autoPlay, 3000);
+
+            // 鼠标划过整个容器时停止自动播放
+            wrap.onmouseover = function () {
+                clearInterval(timer);
+            };
+
+            // 鼠标离开整个容器时继续播放至下一张
+            wrap.onmouseout = function () {
+                timer = setInterval(autoPlay, 3000);
+            };
+            // 遍历所有数字导航实现划过切换至对应的图片
+            for (var i = 0; i < list.length; i++) {
+                list[i].onmouseover = function () {
+                    clearInterval(timer);
+                    index = this.innerText - 1;
+                    changePic(index);
+                };
+            }
+
+            function autoPlay() {
+                if (++index >= pic.length) index = 0;
+                changePic(index);
+            }
+
+            // 定义图片切换函数
+            function changePic(curIndex) {
+                for (var i = 0; i < pic.length; ++i) {
+                    pic[i].style.display = "none";
+                    list[i].className = "";
+                }
+                pic[curIndex].style.display = "block";
+                list[curIndex].className = "on";
+            }
+        };
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <header class="header-box">
+        <div class="header">
+            <ul>
+                <li><p>官网订购热线：400-888-8888</p></li>
+                <li><p>您好，请</p>&nbsp;<a href="/login">登陆</a><a>/</a><a href="/register">注册</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="nav-box">
+        <div class="nav">
+            <ul>
+                <li id="nav-logo"><a href="http://www.dearxy.com"><img src="./img/logo.png" alt=""></a></li>
+            </ul>
+            <ul class="nav-menu">
+                <li><a id="index" href="">首页</a></li>
+                <li><span>|</span></li>
+                <li><a href="">基因检测</a></li>
+                <li><span>|</span></li>
+                <li><a href="">牙膏</a></li>
+                <li><span>|</span></li>
+                <li><a href="">护肤品</a></li>
+            </ul>
+        </div>
+        <div class="nav-b"></div>
+    </section>
+    <section class="site-content">
+        <div class="project">
+            <div class="project__card wrap-tab" id="wrap-tab">
+                <ul id="pic">
+                    <li>
+                        <a href="http://www.dearxy.com/" class="project__image" target="_blank">
+                            <img src="./img/slide1.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.dearxy.com/" class="project__image" target="_blank">
+                            <img src="./img/slide2.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.dearxy.com/" class="project__image" target="_blank">
+                            <img src="./img/slide3.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+
+                <ol id="list">
+                    <li class="on">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-box">
+        <div class="brand">
+            <h3>品牌权威</h3>
+            <p>已有1000000用户选择相信滴儿小云</p>
+            <div class="brand-show">
+                <img src="./img/safe.png" alt="safe">
+                <img src="./img/pro.png" alt="professional">
+                <img src="./img/assure.png" alt="assure">
+            </div>
+        </div>
+    </section>
+
+    <section class="products-show-box">
+        <div class="product-show">
+            <h3>产品展示</h3>
+            <div>
+                <img src="./img/show.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="dna-box">
+        <div class="dna">
+            <h3>基因检测</h3>
+            <p>
+                儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐儿童基因检测套餐</p>
+            <ul>
+                <li><img src="./img/buybuybuy.png" alt=""><a href="#"></a></li>
+                <li><img src="./img/buybuybuy.png" alt=""><a href="#"></a></li>
+                <li><img src="./img/buybuybuy.png" alt=""><a href="#"></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="more-box">
+        <div class="more">
+            <a href="#"><span>查看更多</span></a>
+        </div>
+    </div>
+
+    <footer class="footer-box">
+        <div class="footer">
+            <ul>
+                <li><a href="#"><img src="./img/bottom01.png" alt="">服务声明</a></li>
+                <li><a href="#"><img src="./img/bottom02.png" alt="">关于我们</a></li>
+                <li><a href="#"><img src="./img/bottom03.png" alt="">加入我们</a></li>
+                <li><a href="#"><img src="./img/bottom04.png" alt="">+86-571-8502-2088</a></li>
+            </ul>
+            <ul>
+                <li><img src="./img/qcode.jpg" alt="">
+                    <p>&copy;DIERXIAOYUN All Rights Reserved.</p></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".project").hover3d({
+            selector: ".project__card",
+        });
+    });
+</script>
+</body>
+</html>
