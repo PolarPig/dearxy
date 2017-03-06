@@ -5,30 +5,86 @@
     <title>网站标题</title>
     <meta http-equiv="Content-Language" content="zh-CN"/>
     <meta name="Author" content="滴儿小云"/>
-    <meta name="description" content=""/>
+    <meta name="description" content="滴儿小云"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body {
+            background: #f5f6fa;
+        }
+
+        a:link, a:visited, a:hover, a:active {
+            text-decoration: none;
+        }
+
+        a {
+            color: #83CCD1;
+        }
+
+        p {
+            color: #1e1e1e;
+        }
+
+        span {
+            color: #7c7c7c;
+        }
+
+        .main {
+            width: 92%;
+            line-height: 30px;
+            word-wrap: break-word;
+            background: #ffffff;
+            margin-bottom: 1%;
+            padding: 3.75%;
+        }
+
+        ul {
+            padding-right: 3.75%;
+        }
+
+    </style>
 </head>
 <body>
-<p>版本更新</p>
-<p>2016-12-29 00:00:00</p>
-<p>版本：V5.0 2016-12-29 00:00:00</p>
-
-<ol>更新内容
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-    <li>新增客服语音聊天功能！好开心~</li>
-</ol>
-<button class="" onclick="" value="more" >
-
-</button>
+<div class="main">
+    <h3>版本更新</h3>
+    <p><span>2016-12-29 00:00:00</span></p>
+    <p>版本：V5.0</p>
+    <p><span>更新时间：</span>2016-12-29 00:00:00</p>
+    <div>
+        <span>更新内容</span>
+        <ul>
+            <li>1.新增客服语音聊天功能！好开心~</li>
+            <li>2.新增客服语音聊天功能！好开心~</li>
+            <li>3.新增客服语音聊天功能！好开心~</li>
+        </ul>
+        <ul id="more" style="display: none">
+            <li>4.新增客服语音聊天功能！好开心~</li>
+            <li>5.新增客服语音聊天功能！好开心~</li>
+            <li>6.新增客服语音聊天功能！好开心~</li>
+            <li>7.新增客服语音聊天功能！好开心~</li>
+            <li>8.新增客服语音聊天功能！好开心~</li>
+            <li>9.新增客服语音聊天功能！好开心~</li>
+            <li>10.新增客服语音聊天功能！好开心~</li>
+        </ul>
+        <a href="#" onclick="show(more)">展开更多</a>
+    </div>
+</div>
+<script language="JavaScript">
+    function show(more) {
+        if (more.style.display == "block") {
+            more.style.display = 'none';
+        } else {
+            more.style.display = 'block';
+        }
+    }
+</script>
 </body>
 </html>
