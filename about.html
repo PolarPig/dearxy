@@ -74,7 +74,7 @@
             <li>9.新增客服语音聊天功能！好开心~</li>
             <li>10.新增客服语音聊天功能！好开心~</li>
         </ul>
-        <a href="#" onclick="show(more2)">展开更多</a>
+        <a href="#" onclick="openShutManager(this,'more2',false,'收起更多','展开更多')">展开更多</a>
     </div>
 </div>
 
@@ -99,17 +99,27 @@
             <li>9.新增客服语音聊天功能！好开心~</li>
             <li>10.新增客服语音聊天功能！好开心~</li>
         </ul>
-        <a href="#" onclick="show(more)">展开更多</a>
+        <a href="#" onclick="openShutManager(this,'more',false,'收起更多','展开更多')">展开更多</a>
     </div>
 </div>
 
-<script language="JavaScript">
-    function show(all) {
-        if (all.style.display == "block") {
-            all.style.display = 'none';
-        }
-        else {
-            all.style.display = 'block';
+<script type="text/javascript">
+    function openShutManager(oSourceObj, oTargetObj, shutAble, oOpenTip, oShutTip) {
+        var sourceObj = typeof oSourceObj == "string" ? document.getElementById(oSourceObj) : oSourceObj;
+        var targetObj = typeof oTargetObj == "string" ? document.getElementById(oTargetObj) : oTargetObj;
+        var openTip = oOpenTip || "";
+        var shutTip = oShutTip || "";
+        if (targetObj.style.display != "none") {
+            if (shutAble) return;
+            targetObj.style.display = "none";
+            if (openTip && shutTip) {
+                sourceObj.innerHTML = shutTip;
+            }
+        } else {
+            targetObj.style.display = "block";
+            if (openTip && shutTip) {
+                sourceObj.innerHTML = openTip;
+            }
         }
     }
 </script>
