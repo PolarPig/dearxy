@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>供应商管理</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/element-ui/1.4.2/theme-default/index.css">
+    <style type="text/css">
+        body {
+            background-color: #a29e9e;
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+
+        .colorChange {
+            padding: 10px;
+            font-size: 20px;
+            line-height: 20px;
+            color: #fff;
+            background: -webkit-linear-gradient(left, #20a0ff, transparent);
+            background: -moz-linear-gradient(left, #20a0ff, transparent);
+            background: -o-linear-gradient(left, #20a0ff, transparent);
+            background: linear-gradient(to right, #20a0ff, transparent);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-row class="row-bg" type="flex" justify="center">
+            <el-col :lg="18" :md="20">
+                <el-card class="box-card">
+                    <p class="colorChange">基本概况</p>
+                    <div slot="header" class="clearfix">
+                        <span style="line-height: 36px;">新增供应商</span>
+                        <el-button style="float: right;" type="primary">返回</el-button>
+                    </div>
+                    <el-row>
+                        <el-col :span="12">
+                            <el-form label-position="right" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
+                                <el-form-item label="供应商名称" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="对接方式" prop="name">
+                                        <el-input v-model="ruleForm.name"></el-input>
+                                    </el-form-item>
+                                <el-form-item label="7天无理由退换货" prop="resource">
+                                    <el-radio-group v-model="ruleForm.resource">
+                                        <el-radio label="是"></el-radio>
+                                        <el-radio label="否"></el-radio>
+                                    </el-radio-group>
+                                </el-form-item>
+                                <el-form-item label="每天结单时间" prop="name">
+                                        <el-input v-model="ruleForm.name"></el-input>
+                                    </el-form-item>
+                                <el-form-item label="退换货地址" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="活动形式" prop="desc">
+                                    <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+                                </el-form-item>
+                            </el-form>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form label-position="right" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
+                                <el-form-item label="产品项目数量" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="紧急对接人" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="联系方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="对接方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="退换货地址" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="活动形式" prop="desc">
+                                    <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+                                </el-form-item>
+                            </el-form>
+                        </el-col>
+                    </el-row>
+                </el-card>
+            </el-col>
+        </el-row>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/1.4.2/index.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
+    <script type="text/javascript">
+        //ViewModel
+        var vue = new Vue({
+            el: '#app',
+            data: {
+                ruleForm: {
+                    name: '',
+                    region: '',
+                    date1: '',
+                    date2: '',
+                    delivery: false,
+                    type: [],
+                    resource: '',
+                    desc: ''
+                },
+                rules: {
+                    name: [{
+                            required: true,
+                            message: '请输入活动名称',
+                            trigger: 'blur'
+                        },
+                        {
+                            min: 3,
+                            max: 5,
+                            message: '长度在 3 到 5 个字符',
+                            trigger: 'blur'
+                        }
+                    ],
+                    region: [{
+                        required: true,
+                        message: '请选择活动区域',
+                        trigger: 'change'
+                    }],
+                    date1: [{
+                        type: 'date',
+                        required: true,
+                        message: '请选择日期',
+                        trigger: 'change'
+                    }],
+                    date2: [{
+                        type: 'date',
+                        required: true,
+                        message: '请选择时间',
+                        trigger: 'change'
+                    }],
+                    type: [{
+                        type: 'array',
+                        required: true,
+                        message: '请至少选择一个活动性质',
+                        trigger: 'change'
+                    }],
+                    resource: [{
+                        required: true,
+                        message: '请选择活动资源',
+                        trigger: 'change'
+                    }],
+                    desc: [{
+                        required: true,
+                        message: '请填写活动形式',
+                        trigger: 'blur'
+                    }]
+                },
+                methods: {
+                    submitForm(formName) {
+                        this.$refs[formName].validate((valid) => {
+                            if (valid) {
+                                alert('submit!');
+                            } else {
+                                console.log('error submit!!');
+                                return false;
+                            }
+                        });
+                    },
+                    resetForm(formName) {
+                        this.$refs[formName].resetFields();
+                    }
+                }
+            }
+        });
+    </script>
+
+<!-- http://blog.csdn.net/u012907049/article/details/70237457 -->
+<!-- http://www.cnblogs.com/guokun/p/6068652.html -->
+<!-- http://www.cnblogs.com/landeanfen/p/6054654.html -->
+</body>
+
+</html>
