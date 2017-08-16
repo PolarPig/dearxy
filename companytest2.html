@@ -31,11 +31,11 @@
         <el-row class="row-bg" type="flex" justify="center">
             <el-col :lg="18" :md="20">
                 <el-card class="box-card">
-                    <p class="colorChange">基本概况</p>
                     <div slot="header" class="clearfix">
                         <span style="line-height: 36px;">新增供应商</span>
                         <el-button style="float: right;" type="primary">返回</el-button>
                     </div>
+                    <p class="colorChange">基本概况</p>
                     <el-row>
                         <el-col :span="12">
                             <el-form label-position="right" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
@@ -43,22 +43,25 @@
                                     <el-input v-model="ruleForm.name"></el-input>
                                 </el-form-item>
                                 <el-form-item label="对接方式" prop="name">
-                                        <el-input v-model="ruleForm.name"></el-input>
-                                    </el-form-item>
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
                                 <el-form-item label="7天无理由退换货" prop="resource">
                                     <el-radio-group v-model="ruleForm.resource">
                                         <el-radio label="是"></el-radio>
                                         <el-radio label="否"></el-radio>
                                     </el-radio-group>
                                 </el-form-item>
-                                <el-form-item label="每天结单时间" prop="name">
-                                        <el-input v-model="ruleForm.name"></el-input>
-                                    </el-form-item>
                                 <el-form-item label="退换货地址" prop="name">
                                     <el-input v-model="ruleForm.name"></el-input>
                                 </el-form-item>
-                                <el-form-item label="活动形式" prop="desc">
-                                    <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+                                <el-form-item label="每天结单时间" prop="">
+                                    <el-time-picker v-model="Ctime" :picker-options="{
+                                          selectableRange: '00:00:00 - 23:59:59'
+                                        }" placeholder="每天结单时间">
+                                    </el-time-picker>
+                                </el-form-item>
+                                <el-form-item label="备注" prop="desc">
+                                    <el-input type="textarea" :rows="4" v-model="ruleForm.desc"></el-input>
                                 </el-form-item>
                             </el-form>
                         </el-col>
@@ -73,14 +76,73 @@
                                 <el-form-item label="联系方式" prop="name">
                                     <el-input v-model="ruleForm.name"></el-input>
                                 </el-form-item>
+                                <el-form-item label="退换货对接人" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="联系方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="其他退换货方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="结单方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                            </el-form>
+                        </el-col>
+                    </el-row>
+                    <p class="colorChange">结算对账</p>
+                    <el-row>
+                        <el-col :span="12">
+                            <el-form label-position="right" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
+                                <el-form-item label="供应商名称" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
                                 <el-form-item label="对接方式" prop="name">
                                     <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="7天无理由退换货" prop="resource">
+                                    <el-radio-group v-model="ruleForm.resource">
+                                        <el-radio label="是"></el-radio>
+                                        <el-radio label="否"></el-radio>
+                                    </el-radio-group>
                                 </el-form-item>
                                 <el-form-item label="退换货地址" prop="name">
                                     <el-input v-model="ruleForm.name"></el-input>
                                 </el-form-item>
-                                <el-form-item label="活动形式" prop="desc">
-                                    <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+                                <el-form-item label="每天结单时间" prop="">
+                                    <el-time-picker v-model="Ctime" :picker-options="{
+                                          selectableRange: '00:00:00 - 23:59:59'
+                                        }" placeholder="每天结单时间">
+                                    </el-time-picker>
+                                </el-form-item>
+                                <el-form-item label="备注" prop="desc">
+                                    <el-input type="textarea" :rows="4" v-model="ruleForm.desc"></el-input>
+                                </el-form-item>
+                            </el-form>
+                        </el-col>
+                        <el-col :span="12">
+                            <el-form label-position="right" :model="ruleForm" :rules="rules" ref="ruleForm" label-width="130px" class="demo-ruleForm">
+                                <el-form-item label="产品项目数量" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="紧急对接人" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="联系方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="退换货对接人" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="联系方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="其他退换货方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
+                                </el-form-item>
+                                <el-form-item label="结单方式" prop="name">
+                                    <el-input v-model="ruleForm.name"></el-input>
                                 </el-form-item>
                             </el-form>
                         </el-col>
@@ -97,6 +159,7 @@
         var vue = new Vue({
             el: '#app',
             data: {
+                Ctime: new Date(2017, 8, 10, 17, 00),
                 ruleForm: {
                     name: '',
                     region: '',
@@ -172,10 +235,9 @@
             }
         });
     </script>
-
-<!-- http://blog.csdn.net/u012907049/article/details/70237457 -->
-<!-- http://www.cnblogs.com/guokun/p/6068652.html -->
-<!-- http://www.cnblogs.com/landeanfen/p/6054654.html -->
+    <!-- http://blog.csdn.net/u012907049/article/details/70237457
+    http://www.cnblogs.com/guokun/p/6068652.html
+    http://www.cnblogs.com/landeanfen/p/6054654.html -->
 </body>
 
 </html>
