@@ -7,10 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>供应商管理</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/element-ui/1.4.2/theme-default/index.css">
+    <script>
+    </script>
     <style type="text/css">
         body {
             background-color: #a29e9e;
             font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        }
+        
+        .pagination-box {
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -24,222 +31,89 @@
                         <span style="line-height: 36px;">所有供应商列表</span>
                         <el-button style="float: right;" type="primary" icon="plus">新增供应商</el-button>
                     </div>
-                    <template>
-                        <el-table :data="rows" border stripe style="width: 100%">
-                            <el-table-column align="center" prop="Name" label="供应商名称" min-width="14%"></el-table-column>
-                            <el-table-column align="center" prop="Edtel" label="紧急对接人及联系方式" min-width="24%"></el-table-column>
-                            <el-table-column align="center" prop="Rctel" label="退换货联系人及联系方式" min-width="26%"></el-table-column>
-                            <el-table-column align="center" prop="Ctime" label="结单时间" min-width="12%"></el-table-column>
-                            <el-table-column align="center" prop="Ctype" label="结单方式" min-width="12%"></el-table-column>
-                            <el-table-column align="center" label="操作" min-width="12%">
-                                <template scope="edit">
+                    <el-table :data="results" border stripe style="width: 100%">
+                        <el-table-column align="center" prop="data.area" label="供应商名称" min-width="14%"></el-table-column>
+                        <el-table-column align="center" prop="data.location" label="紧急对接人及联系方式" min-width="24%"></el-table-column>
+                        <el-table-column align="center" prop="data.ip" label="退换货联系人及联系方式" min-width="26%"></el-table-column>
+                        <el-table-column align="center" prop="status.code" label="结单时间" min-width="12%"></el-table-column>
+                        <el-table-column align="center" prop="status.message" label="结单方式" min-width="12%"></el-table-column>
+                        <el-table-column align="center" label="操作" min-width="12%">
+                            <template scope="edit">
                                     <el-button @click="viewDetails" type="primary" size="small">查看详情</el-button>
                                 </template>
-                            </el-table-column>
-                        </el-table>
-                        <el-pagination @size-change="sizeChange" @current-change="pageIndexChange" :current-page="pageIndex" :page-sizes="pageSizes"
-                            :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper" :total="total">
+                        </el-table-column>
+                    </el-table>
+                    <div class="pagination-box">
+                        <el-pagination @size-change="sizeChange" @current-change="pageIndexChange" :current-page="pageIndex" :page-sizes="pageSizes" :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper" :total="total">
                         </el-pagination>
-                    </template>
-                    <!-- <ul class="pagination pull-right">
-                        <template v-for="page in Math.ceil(rows.length/pagesize)">
-                            <li v-on:click="PrePage()" id="prepage" v-if="page==1" class="disabled">
-                                <a href="#">上一页</a>
-                            </li>
-                            <li v-if="page==1" class="active" v-on:click="NumPage(page, $event)">
-                                <a href="#">{{page}}</a>
-                            </li>
-                            <li v-else v-on:click="NumPage(page, $event)">
-                                <a href="#">{{page}}</a>
-                            </li>
-                            <li id="nextpage" v-on:click="NextPage()" v-if="page==Math.ceil(rows.length/pagesize)">
-                                <a href="#">下一页</a>
-                            </li>
-                        </template>
-                    </ul> -->
+                    </div>
                 </el-card>
             </el-col>
         </el-row>
     </div>
     <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/1.4.2/index.js"></script>
-    <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
+    <!-- <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="http://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
     <script type="text/javascript">
-        //Model
-        var dataaaa = {
-            rows: [{
-                Id: 1,
-                Name: '糖小希',
-                Edtel: '张小希/18667111111',
-                Rctel: '赵小希/15574838889',
-                Ctime: '00:00',
-                Ctype: '表格1',
-                Edit: '查看详情'
-            }, {
-                Id: 2,
-                Name: '糖大希',
-                Edtel: '张大希/18667111111',
-                Rctel: '赵大希/15574838889',
-                Ctime: '06:00',
-                Ctype: '表格2',
-                Edit: '查看详情'
-            }, {
-                Id: 3,
-                Name: '糖红希',
-                Edtel: '张红希/18667111111',
-                Rctel: '赵红希/15574838889',
-                Ctime: '12:00',
-                Ctype: '表格3',
-                Edit: '查看详情'
-            }, {
-                Id: 4,
-                Name: '糖蓝希',
-                Edtel: '张蓝希/18667111111',
-                Rctel: '赵蓝希/15574838889',
-                Ctime: '18:00',
-                Ctype: '表格4',
-                Edit: '查看详情'
-            }, {
-                Id: 5,
-                Name: '糖黄希',
-                Edtel: '张黄希/18667111111',
-                Rctel: '赵黄希/15574838889',
-                Ctime: '24:00',
-                Ctype: '表格5',
-                Edit: '查看详情'
-            }, ],
-            pagesize: 3,
-            curpage: 1, //当前页的页码
-        };
-
         //ViewModel
         var vue = new Vue({
             el: '#app',
             data: {
-                rows: [{
-                    Id: 1,
-                    Name: '糖小希',
-                    Edtel: '张小希/18667111111',
-                    Rctel: '赵小希/15574838889',
-                    Ctime: '00:00',
-                    Ctype: '表格1',
-                }, {
-                    Id: 2,
-                    Name: '糖大希',
-                    Edtel: '张大希/18667111111',
-                    Rctel: '赵大希/15574838889',
-                    Ctime: '06:00',
-                    Ctype: '表格2',
-                }, {
-                    Id: 3,
-                    Name: '糖红希',
-                    Edtel: '张红希/18667111111',
-                    Rctel: '赵红希/15574838889',
-                    Ctime: '12:00',
-                    Ctype: '表格3',
-                }, {
-                    Id: 4,
-                    Name: '糖蓝希',
-                    Edtel: '张蓝希/18667111111',
-                    Rctel: '赵蓝希/15574838889',
-                    Ctime: '18:00',
-                    Ctype: '表格4',
-                }, {
-                    Id: 5,
-                    Name: '糖黄希',
-                    Edtel: '张黄希/18667111111',
-                    Rctel: '赵黄希/15574838889',
-                    Ctime: '24:00',
-                    Ctype: '表格5',
-                }, {
-                    Id: 6,
-                    Name: '糖小希',
-                    Edtel: '张小希/18667111111',
-                    Rctel: '赵小希/15574838889',
-                    Ctime: '00:00',
-                    Ctype: '表格1',
-                    Edit: '查看详情'
-                }, {
-                    Id: 7,
-                    Name: '糖大希',
-                    Edtel: '张大希/18667111111',
-                    Rctel: '赵大希/15574838889',
-                    Ctime: '06:00',
-                    Ctype: '表格2',
-                    Edit: '查看详情'
-                }, {
-                    Id: 8,
-                    Name: '糖红希',
-                    Edtel: '张红希/18667111111',
-                    Rctel: '赵红希/15574838889',
-                    Ctime: '12:00',
-                    Ctype: '表格3',
-                    Edit: '查看详情'
-                }, {
-                    Id: 9,
-                    Name: '糖蓝希',
-                    Edtel: '张蓝希/18667111111',
-                    Rctel: '赵蓝希/15574838889',
-                    Ctime: '18:00',
-                    Ctype: '表格4',
-                    Edit: '查看详情'
-                }, {
-                    Id: 10,
-                    Name: '糖黄希',
-                    Edtel: '张黄希/18667111111',
-                    Rctel: '赵黄希/15574838889',
-                    Ctime: '24:00',
-                    Ctype: '表格5',
-                    Edit: '查看详情'
-                }],
+                results: [{
+                        "data": {
+                            "area": "浙江省杭州市西湖区",
+                            "location": "华数宽带",
+                            "ip": "58.100.93.220"
+                        },
+                        "status": {
+                            "code": 200,
+                            "message": ""
+                        }
+                    }
+                    //     {
+                    //     name: "tang",
+                    //     emergencyDocking: "tangxiaoxi",
+                    //     EDPhone: "1383132",
+                    //     returnContactPerson: "tangxiaoxi",
+                    //     RCPPhone: "1383132",
+                    //     statementTime: "15:00",
+                    //     statementWay: "表格"
+                    // }
+                ],
                 pageIndex: 1,
                 pageSize: 1,
                 total: 1000,
                 pageSizes: [10, 20, 50, 100],
             },
+            mounted() {
+                axios.get("https://bird.ioliu.cn/ip")
+                    .then(response => {
+                        this.results = response.data.resultes
+                    })
+            },
             methods: {
-                viewDetails() {
-                    console.log();
-                },
                 sizeChange(pageSize) {
                     this.pageSize = pageSize;
-                    // this.fetchData();
                 },
                 pageIndexChange(pageIndex) {
                     this.pageIndex = pageIndex;
-                    // this.fetchData();
                 },
-                //上一页方法
-                PrePage: function (event) {
-                    $(".pagination .active").prev().trigger("click");
+                viewDetails(avr) {
+                    console.log("aaa")
                 },
-                //下一页方法
-                NextPage: function (event) {
-                    $(".pagination .active").next().trigger("click");
-                },
-                //点击页码的方法
-                NumPage: function (num, event) {
-                    if (this.curpage == num) {
-                        return;
-                    }
-                    this.curpage = num;
-                    $(".pagination li").removeClass("active");
-                    if (event.target.tagName.toUpperCase() == "LI") {
-                        $(event.target).addClass("active");
-                    } else {
-                        $(event.target).parent().addClass("active");
-                    }
-                    if (this.curpage == 1) {
-                        $("#prepage").addClass("disabled");
-                    } else {
-                        $("#prepage").removeClass("disabled");
-                    }
-                    if (this.curpage == Math.ceil(this.rows.length / this.pagesize)) {
-                        $("#nextpage").addClass("disabled");
-                    } else {
-                        $("#nextpage").removeClass("disabled");
-                    }
-                }
+
+                // dataShow: function() {
+                //     var _self = this;
+                //     $.ajax({
+                //         type: 'GET',
+                //         dataType: jsonp,
+                //         url: 'https://bird.ioliu.cn/ip',
+                //         success: function(data) {
+                //             _self.results = data;
+                //         }
+                //     });
+                // }
             }
         });
     </script>
