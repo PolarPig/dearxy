@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/element-ui/1.4.2/theme-default/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-button type="primary" v-on:click="showData">显示数据</el-button>
+        <template>
+            <ul v-for="data in testdata">
+                <li>{{ data.area }}</li>
+                <li>{{ data.location }}</li>
+                <li>{{ data.ip }}</li>
+                <li>{{ testdata.status.code }}</li>
+                <li>{{ testdata.status.message }}</li>
+            </ul>
+        </template>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/element-ui/1.4.2/index.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script> -->
+    <script type="text/javascript">
+        //ViewModel
+        new Vue({
+            el: '#app',
+            data: {
+                testdata: '',
+            },
+            methods: {
+                showData: function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://bird.ioliu.cn/ip',
+                        // url:'http://dearxiaoyun.com.cn//app//index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=goods.getadv',
+                        success: function (data) {
+                            // this.testdata = JSON.stringify(data);  // 为什么这个循环好多次                        
+                            this.testdata = data; // 为什么这个循环两次，
+                            // 数据里类似
+                            // {'teamA':[{'a':'x','y'},{'b':'x','y'}],'teamB:'[{'a':'x','y'},{'b':'x','y'}]}
+                            // 这种的怎么分别取数据？
+                        }.bind(this),
+                        error: function (data) {
+                            console.log("读取error!");
+                        }
+                    });
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

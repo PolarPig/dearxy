@@ -32,15 +32,15 @@
                         <el-button style="float: right;" type="primary" icon="plus">新增供应商</el-button>
                     </div>
                     <el-table :data="results" border stripe style="width: 100%">
-                        <el-table-column align="center" prop="data.area" label="供应商名称" min-width="14%"></el-table-column>
-                        <el-table-column align="center" prop="data.location" label="紧急对接人及联系方式" min-width="24%"></el-table-column>
-                        <el-table-column align="center" prop="data.ip" label="退换货联系人及联系方式" min-width="26%"></el-table-column>
-                        <el-table-column align="center" prop="status.code" label="结单时间" min-width="12%"></el-table-column>
-                        <el-table-column align="center" prop="status.message" label="结单方式" min-width="12%"></el-table-column>
+                        <el-table-column align="center" prop="rusults.area" label="供应商名称" min-width="14%"></el-table-column>
+                        <el-table-column align="center" prop="rusults.location" label="紧急对接人及联系方式" min-width="24%"></el-table-column>
+                        <el-table-column align="center" prop="rusults.ip" label="退换货联系人及联系方式" min-width="26%"></el-table-column>
+                        <el-table-column align="center" prop="rusults.code" label="结单时间" min-width="12%"></el-table-column>
+                        <el-table-column align="center" prop="rusults.message" label="结单方式" min-width="12%"></el-table-column>
                         <el-table-column align="center" label="操作" min-width="12%">
                             <template scope="edit">
                                     <el-button @click="viewDetails" type="primary" size="small">查看详情</el-button>
-                                </template>
+                            </template>
                         </el-table-column>
                     </el-table>
                     <div class="pagination-box">
@@ -48,39 +48,44 @@
                         </el-pagination>
                     </div>
                 </el-card>
+
+                <!-- <el-card class="">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style='width:3%; text-align: left'>ID</th>
+                                <th style='width:5%; text-align: left'>名称</th>
+                                <th style='width:10%; text-align: left'>条形码</th>
+                                <th style='width:10%; text-align: left'>简称</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="goods in goodsList">
+                                <td>{{goods.area}}</td>
+                                <td>{{goods.location}}</td>
+                                <td>{{goods.ip}}</td>
+                                <td>{{goods.code}}</td>
+                                <td>{{goods.message}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button v-on:click="nameSearch()">查询</button>
+                </el-card> -->
             </el-col>
         </el-row>
     </div>
     <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/1.4.2/index.js"></script>
-    <!-- <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
     <script type="text/javascript">
         //ViewModel
         var vue = new Vue({
             el: '#app',
             data: {
-                results: [{
-                        "data": {
-                            "area": "浙江省杭州市西湖区",
-                            "location": "华数宽带",
-                            "ip": "58.100.93.220"
-                        },
-                        "status": {
-                            "code": 200,
-                            "message": ""
-                        }
-                    }
-                    //     {
-                    //     name: "tang",
-                    //     emergencyDocking: "tangxiaoxi",
-                    //     EDPhone: "1383132",
-                    //     returnContactPerson: "tangxiaoxi",
-                    //     RCPPhone: "1383132",
-                    //     statementTime: "15:00",
-                    //     statementWay: "表格"
-                    // }
-                ],
+                message: '',
+                goodsList: '',
+                results: '',
                 pageIndex: 1,
                 pageSize: 1,
                 total: 1000,
@@ -93,6 +98,16 @@
                     })
             },
             methods: {
+                // nameSearch: function() {
+                //     var _self = this;
+                //     $.ajax({
+                //         type: 'GET',
+                //         url: 'https://bird.ioliu.cn/ip',
+                //         success: function(data) {
+                //             _self.goodsList = data;
+                //         }
+                //     });
+                // },
                 sizeChange(pageSize) {
                     this.pageSize = pageSize;
                 },
@@ -102,18 +117,17 @@
                 viewDetails(avr) {
                     console.log("aaa")
                 },
-
-                // dataShow: function() {
-                //     var _self = this;
-                //     $.ajax({
-                //         type: 'GET',
-                //         dataType: jsonp,
-                //         url: 'https://bird.ioliu.cn/ip',
-                //         success: function(data) {
-                //             _self.results = data;
-                //         }
-                //     });
-                // }
+                dataShow: function() {
+                    var _self = this;
+                    $.ajax({
+                        type: 'GET',
+                        dataType: jsonp,
+                        url: 'https://bird.ioliu.cn/ip',
+                        success: function(data) {
+                            _self.results = data;
+                        }
+                    });
+                },
             }
         });
     </script>
