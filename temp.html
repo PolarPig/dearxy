@@ -1,103 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="utf-8" />
-    <title>about</title>
-    <meta http-equiv="Content-Language" content="zh-CN" />
-    <meta name="Author" content="滴儿小云" />
-    <meta name="description" content="滴儿小云" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none
-        }
-
-        body {
-            background: #f5f6fa
-        }
-
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            text-decoration: none
-        }
-
-        a {
-            color: #83ccd1
-        }
-
-        p {
-            color: #1e1e1e
-        }
-
-        span {
-            color: #7c7c7c
-        }
-
-        .main {
-            width: 92%;
-            line-height: 30px;
-            word-wrap: break-word;
-            background: #fff;
-            margin-bottom: 1%;
-            padding: 3.75%
-        }
-
-        ul {
-            padding-right: 3.75%
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        table thead tr th {
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div class="main">
-        <h3>版本更新</h3>
-        <p><span>2017-07-01 08:00:00</span></p>
-        <p>版本：V1.0</p>
-        <p><span>更新时间：</span>2017-07-01 08:00:00</p>
-        <div><span>更新内容</span>
-            <ul>
-                <li>1.新增客服语音聊天功能！好开心~</li>
-                <li>2.新增客服语音聊天功能！好开心~</li>
-                <li>3.新增客服语音聊天功能！好开心~</li>
+    <div style="padding:20px;" id="app" class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">所有供应商列表</div>
+            <table class="table table-bordered table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>供应商名称</th>
+                        <th>紧急对接人及联系方式</th>
+                        <th>退换货联系人及联系方式</th>
+                        <th>结单时间</th>
+                        <th>结单方式</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template v-for="(item, index) in data ">
+                        <tr v-if="index>=(curpage-1)*pagesize&&index<curpage*pagesize">
+                            <td>{{item.name}}</td>
+                            <td>{{item.emergencyDocking}}</td>
+                            <td>{{item.returnContactPerson}}</td>
+                            <td>{{item.statementTime}}</td>
+                            <td>{{item.statementWay}}</td>
+                            <td><button>查看详情</button></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <nav style="float:right;">
+            <ul class="pagination pagination-lg">
+                <template v-for="page in Math.ceil(data.length/pagesize)">
+                    <li v-on:click="PrePage()" id="prepage" v-if="page==1" class="disabled"><a href="#">上一页</a></li>
+                    <li v-if="page==1" class="active" v-on:click="NumPage(page, $event)"><a href="#">{{page}}</a></li>
+                    <li v-else v-on:click="NumPage(page, $event)"><a href="#">{{page}}</a></li>
+                    <li id="nextpage" v-on:click="NextPage()" v-if="page==Math.ceil(data.length/pagesize)"><a href="#">下一页</a></li>
+                </template>
             </ul>
-            <ul id="more" style="display: none">
-                <li>4.新增客服语音聊天功能！好开心~</li>
-                <li>5.新增客服语音聊天功能！好开心~</li>
-                <li>6.新增客服语音聊天功能！好开心~</li>
-                <li>7.新增客服语音聊天功能！好开心~</li>
-                <li>8.新增客服语音聊天功能！好开心~</li>
-                <li>9.新增客服语音聊天功能！好开心~</li>
-                <li>10.新增客服语音聊天功能！好开心~</li>
-            </ul><a href="#" onclick="openShutManager(this,'more',false,'收起更多','展开更多')">展开更多</a></div>
+        </nav>
     </div>
+    <script src="http://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-        function openShutManager(oSourceObj, oTargetObj, shutAble, oOpenTip, oShutTip) {
-            var sourceObj = typeof oSourceObj == "string" ? document.getElementById(oSourceObj) : oSourceObj;
-            var targetObj = typeof oTargetObj == "string" ? document.getElementById(oTargetObj) : oTargetObj;
-            var openTip = oOpenTip || "";
-            var shutTip = oShutTip || "";
-            if (targetObj.style.display != "none") {
-                if (shutAble) {
-                    return
-                }
-                targetObj.style.display = "none";
-                if (openTip && shutTip) {
-                    sourceObj.innerHTML = shutTip
-                }
-            } else {
-                targetObj.style.display = "block";
-                if (openTip && shutTip) {
-                    sourceObj.innerHTML = openTip
+        //ViewModel
+        var vue = new Vue({
+            el: '#app',
+            data: {
+                data: [{
+                    "basicRemark": "1",
+                    "diamondOne": "1",
+                    "diamondTwo": "1",
+                    "distribution": false,
+                    "dockingWay": "2",
+                    "eDPhone": "21",
+                    "emergencyDocking": "2",
+                    "exceptionProduct": false,
+                    "gatheringAccount": "1",
+                    "gatheringBank": "1",
+                    "gatheringBranch": "1",
+                    "goldOne": "1",
+                    "goldTwo": "1",
+                    "id": 3,
+                    "name": "eqitie",
+                    "otherRCWay": "1",
+                    "otherWay": "1",
+                    "password": "1",
+                    "productQuantity": "2",
+                    "rCAddress": "1",
+                    "rCPPhone": "1",
+                    "reconciliationDate": "1",
+                    "remitWay": "1",
+                    "returnContactPerson": "12",
+                    "sevenDayNoReasonreturn": false,
+                    "silverOne": "1",
+                    "silverTwo": "1",
+                    "statementPeriod": "1",
+                    "statementTime": "1",
+                    "statementWay": "1",
+                    "supplierAccount": "11",
+                    "tTFinshTime": "1",
+                    "tTPPhone": "1",
+                    "tTPerson": "1",
+                    "tTRrmark": "1",
+                    "technologyTransfer": false
+                }, {
+                    "basicRemark": "1",
+                    "diamondOne": "1",
+                    "diamondTwo": "1",
+                    "distribution": false,
+                    "dockingWay": "2",
+                    "eDPhone": "21",
+                    "emergencyDocking": "2",
+                    "exceptionProduct": false,
+                    "gatheringAccount": "1",
+                    "gatheringBank": "1",
+                    "gatheringBranch": "1",
+                    "goldOne": "1",
+                    "goldTwo": "1",
+                    "id": 4,
+                    "name": "tangxiaoxi",
+                    "otherRCWay": "1",
+                    "otherWay": "1",
+                    "password": "1",
+                    "productQuantity": "2",
+                    "rCAddress": "1",
+                    "rCPPhone": "1",
+                    "reconciliationDate": "1",
+                    "remitWay": "1",
+                    "returnContactPerson": "12",
+                    "sevenDayNoReasonreturn": false,
+                    "silverOne": "1",
+                    "silverTwo": "1",
+                    "statementPeriod": "1",
+                    "statementTime": "1",
+                    "statementWay": "1",
+                    "supplierAccount": "11",
+                    "tTFinshTime": "1",
+                    "tTPPhone": "1",
+                    "tTPerson": "1",
+                    "tTRrmark": "1",
+                    "technologyTransfer": false
+                }, {
+                    "basicRemark": "1",
+                    "diamondOne": "1",
+                    "diamondTwo": "1",
+                    "distribution": false,
+                    "dockingWay": "2",
+                    "eDPhone": "21",
+                    "emergencyDocking": "2",
+                    "exceptionProduct": false,
+                    "gatheringAccount": "1",
+                    "gatheringBank": "1",
+                    "gatheringBranch": "1",
+                    "goldOne": "1",
+                    "goldTwo": "1",
+                    "id": 5,
+                    "name": "vital",
+                    "otherRCWay": "1",
+                    "otherWay": "1",
+                    "password": "1",
+                    "productQuantity": "2",
+                    "rCAddress": "1",
+                    "rCPPhone": "1",
+                    "reconciliationDate": "1",
+                    "remitWay": "1",
+                    "returnContactPerson": "12",
+                    "sevenDayNoReasonreturn": false,
+                    "silverOne": "1",
+                    "silverTwo": "1",
+                    "statementPeriod": "1",
+                    "statementTime": "1",
+                    "statementWay": "1",
+                    "supplierAccount": "11",
+                    "tTFinshTime": "1",
+                    "tTPPhone": "1",
+                    "tTPerson": "1",
+                    "tTRrmark": "1",
+                    "technologyTransfer": false
+                },],
+                status: '',
+                pagesize: 9,
+                curpage: 1, //当前页的页码
+            },
+            methods: {
+                //上一页方法
+                PrePage: function (event) {
+                    $(".pagination .active").prev().trigger("click");
+                },
+                //下一页方法
+                NextPage: function (event) {
+                    $(".pagination .active").next().trigger("click");
+                },
+                //点击页码的方法
+                NumPage: function (num, event) {
+                    if (this.curpage == num) {
+                        return;
+                    }
+                    this.curpage = num;
+                    $(".pagination li").removeClass("active");
+                    if (event.target.tagName.toUpperCase() == "LI") {
+                        $(event.target).addClass("active");
+                    } else {
+                        $(event.target).parent().addClass("active");
+                    }
+                    if (this.curpage == 1) {
+                        $("#prepage").addClass("disabled");
+                    } else {
+                        $("#prepage").removeClass("disabled");
+                    }
+                    if (this.curpage == Math.ceil(this.data.length / this.pagesize)) {
+                        $("#nextpage").addClass("disabled");
+                    } else {
+                        $("#nextpage").removeClass("disabled");
+                    }
                 }
             }
-        };
+        });
     </script>
 </body>
 

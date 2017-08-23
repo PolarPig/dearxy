@@ -14,123 +14,82 @@
             margin: 0;
             padding: 0;
             list-style: none;
-            text-decoration: none;
+            text-decoration: none
         }
-        
+
         body {
-            background: #f5f6fa;
+            background: #f5f6fa
         }
-        
+
         a:link,
         a:visited,
         a:hover,
         a:active {
-            text-decoration: none;
+            text-decoration: none
         }
-        
+
         a {
-            color: #83CCD1;
+            color: #83ccd1
         }
-        
+
         p {
-            color: #1e1e1e;
+            color: #1e1e1e
         }
-        
+
         span {
-            color: #7c7c7c;
+            color: #7c7c7c
         }
-        
+
         .main {
             width: 92%;
             line-height: 30px;
             word-wrap: break-word;
-            background: #ffffff;
+            background: #fff;
             margin-bottom: 1%;
-            padding: 3.75%;
+            padding: 3.75%
         }
-        
+
         ul {
-            padding-right: 3.75%;
+            padding-right: 3.75%
         }
     </style>
-    <script type="text/javascript">
-        function clickme() {
-            alert('shuchuwenzibufen')
-        }
-    </script>
 </head>
 
 <body>
     <div class="main">
-        <h3>版本更新</h3>
-        <p><span>2016-12-29 00:00:00</span></p>
-        <p>版本：V5.0</p>
-        <p><span>更新时间：</span>2016-12-29 00:00:00</p>
-        <div>
-
-            <button type="button" value="" name="" onclick="clickme()">更新内容</button>
-            <ul>
-                <li>1.新增客服语音聊天功能！好开心~</li>
-                <li>2.新增客服语音聊天功能！好开心~</li>
-                <li>3.新增客服语音聊天功能！好开心~</li>
-            </ul>
-            <ul id="more2" style="display: none">
-                <li>4.新增客服语音聊天功能！好开心~</li>
-                <li>5.新增客服语音聊天功能！好开心~</li>
-                <li>6.新增客服语音聊天功能！好开心~</li>
-                <li>7.新增客服语音聊天功能！好开心~</li>
-                <li>8.新增客服语音聊天功能！好开心~</li>
-                <li>9.新增客服语音聊天功能！好开心~</li>
-                <li>10.新增客服语音聊天功能！好开心~</li>
-            </ul>
-            <a href="#" onclick="openShutManager(this,'more2',false,'收起更多','展开更多')">展开更多</a>
-        </div>
+        <h3>关于我们</h3><br>
+        <p style="text-indent:2em">爱多是杭州滴儿科技旗下的健康平台，为用户提供养生、保健、病后恢复等各种营养素，致力于打造安全可靠的健康营养素品牌。爱多，多一点健康，多一点爱。</p><br>
+        <h3>联系我们</h3><br>
+        <p>技术支持：liuxiuliang@dearxy.com</p>
+        <p>客服电话：400-678-2121</p>
     </div>
-
     <div class="main">
-        <h3>版本更新</h3>
-        <p><span>2016-12-29 00:00:00</span></p>
-        <p>版本：V5.0</p>
-        <p><span>更新时间：</span>2016-12-29 00:00:00</p>
-        <div>
-            <span>更新内容</span>
-            <ul>
-                <li>1.新增客服语音聊天功能！好开心~</li>
-                <li>2.新增客服语音聊天功能！好开心~</li>
-                <li>3.新增客服语音聊天功能！好开心~</li>
-            </ul>
-            <ul id="more" style="display: none">
-                <li>4.新增客服语音聊天功能！好开心~</li>
-                <li>5.新增客服语音聊天功能！好开心~</li>
-                <li>6.新增客服语音聊天功能！好开心~</li>
-                <li>7.新增客服语音聊天功能！好开心~</li>
-                <li>8.新增客服语音聊天功能！好开心~</li>
-                <li>9.新增客服语音聊天功能！好开心~</li>
-                <li>10.新增客服语音聊天功能！好开心~</li>
-            </ul>
-            <a href="#" onclick="openShutManager(this,'more',false,'收起更多','展开更多')">展开更多</a>
-        </div>
-    </div>
-
+        <h3>版本更新</h3><br>
+        <p><span>2017-08-23 17:00:00</span></p>
+        <p>版本：V1.0.0</p>
+        <p><span>更新时间：</span>2017-08-23 17:00:00</p>
+        <!--<div><span>更新内容</span><ul><li>1.新增客服语音聊天功能！好开心~</li><li>2.新增客服语音聊天功能！好开心~</li><li>3.新增客服语音聊天功能！好开心~</li></ul><ul id="more" style="display: none"><li>4.新增客服语音聊天功能！好开心~</li><li>5.新增客服语音聊天功能！好开心~</li><li>6.新增客服语音聊天功能！好开心~</li><li>7.新增客服语音聊天功能！好开心~</li><li>8.新增客服语音聊天功能！好开心~</li><li>9.新增客服语音聊天功能！好开心~</li><li>10.新增客服语音聊天功能！好开心~</li></ul><a href="#" onclick="openShutManager(this,'more',false,'收起更多','展开更多')">展开更多</a></div>--></div>
     <script type="text/javascript">
-        function openShutManager(oSourceObj, oTargetObj, shutAble, oOpenTip, oShutTip) {
-            var sourceObj = typeof oSourceObj == "string" ? document.getElementById(oSourceObj) : oSourceObj;
-            var targetObj = typeof oTargetObj == "string" ? document.getElementById(oTargetObj) : oTargetObj;
-            var openTip = oOpenTip || "";
-            var shutTip = oShutTip || "";
-            if (targetObj.style.display != "none") {
-                if (shutAble) return;
-                targetObj.style.display = "none";
-                if (openTip && shutTip) {
-                    sourceObj.innerHTML = shutTip;
+        function openShutManager(b, c, h, f, a) {
+            var g = typeof b == "string" ? document.getElementById(b) : b;
+            var e = typeof c == "string" ? document.getElementById(c) : c;
+            var i = f || "";
+            var d = a || "";
+            if (e.style.display != "none") {
+                if (h) {
+                    return
+                }
+                e.style.display = "none";
+                if (i && d) {
+                    g.innerHTML = d
                 }
             } else {
-                targetObj.style.display = "block";
-                if (openTip && shutTip) {
-                    sourceObj.innerHTML = openTip;
+                e.style.display = "block";
+                if (i && d) {
+                    g.innerHTML = i
                 }
             }
-        }
+        };
     </script>
 </body>
 

@@ -12,13 +12,9 @@
 <body>
     <div id="app">
         <el-button type="primary" v-on:click="showData">显示数据</el-button>
-        <template>
-            <ul v-for="data in testdata">
-                <li>{{ data.area }}</li>
-                <li>{{ data.location }}</li>
-                <li>{{ data.ip }}</li>
-                <li>{{ testdata.status.code }}</li>
-                <li>{{ testdata.status.message }}</li>
+        <template v-for="item in data">
+            <ul>
+                <li>{{ item }}</li>
             </ul>
         </template>
     </div>
@@ -31,20 +27,24 @@
         new Vue({
             el: '#app',
             data: {
-                testdata: '',
+                data: '',
             },
             methods: {
                 showData: function () {
+                    let pageUrl = {
+                        // url: 'http://dearxiaoyun.com.cn/temp.json',
+                        // url: 'https://bird.ioliu.cn/ip',
+                        // url: 'https://bird.ioliu.cn/joke',
+                        // url:'http://dearxiaoyun.com.cn/app/index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=goods.getlist&isrecommand=1',
+                        url:'http://10.0.0.111:8080/SIMS/servlet/siteListServlet',
+                    };
                     $.ajax({
                         type: 'GET',
-                        url: 'https://bird.ioliu.cn/ip',
-                        // url:'http://dearxiaoyun.com.cn//app//index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=goods.getadv',
+                        url: pageUrl.url,
+                        dataType:'JSON',
                         success: function (data) {
-                            // this.testdata = JSON.stringify(data);  // 为什么这个循环好多次                        
-                            this.testdata = data; // 为什么这个循环两次，
-                            // 数据里类似
-                            // {'teamA':[{'a':'x','y'},{'b':'x','y'}],'teamB:'[{'a':'x','y'},{'b':'x','y'}]}
-                            // 这种的怎么分别取数据？
+                            // this.data = JSON.stringify(data.data);
+                            this.data = data.data;
                         }.bind(this),
                         error: function (data) {
                             console.log("读取error!");
