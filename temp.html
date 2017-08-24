@@ -20,7 +20,21 @@
 
 <body>
     <div style="padding:20px" id="app" class="container">
-        <div class="panel panel-primary">
+        <nav class="navbar navbar-default ">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input style="width:500px;" type="text" class="form-control" placeholder="供应商名称">
+                        </div>
+                        <button type="submit" class="btn btn-default" v-on:click="showData">搜索</button>
+                    </form>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="panel panel-default">
             <div class="panel-heading">所有供应商列表</div>
             <table class="table table-bordered table-striped text-center">
                 <thead>
@@ -57,8 +71,6 @@
                 </template>
             </ul>
         </nav>
-        
-        <button type="button" class="btn btn-primary btn-lg" v-on:click="showData">查询数据</button>
     </div>
     <script src="http://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -67,7 +79,22 @@
         var vue = new Vue({
             el: '#app',
             data: {
-                data: '',
+                data: ''
+                    //     [{"basicRemark":"1",
+                    // "diamondOne":"1",
+                    // "diamondTwo":"1",
+                    // "distribution":false,
+                    // "dockingWay":"2",
+                    // "eDPhone":"21",
+                    // "emergencyDocking":"2",
+                    // "exceptionProduct":false,
+                    // "gatheringAccount":"1",
+                    // "gatheringBank":"1",
+                    // "gatheringBranch":"1",
+                    // "goldOne":"1",
+                    // "goldTwo":"1",
+                    // "id":3,}]
+                    ,
                 status: '',
                 pagesize: 9,
                 curpage: 1, //当前页的页码
@@ -81,7 +108,7 @@
                         // url:'http://dearxiaoyun.com.cn/app/index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=goods.getlist&isrecommand=1',
                         url: 'http://10.0.0.111:8080/SIMS/servlet/siteListServlet',
                     };
-                    $.ajax({
+                    new $.ajax({
                         type: 'GET',
                         url: pageUrl.url,
                         dataType: 'JSON',
