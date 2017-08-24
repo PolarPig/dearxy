@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <input style="width:500px;" type="text" class="form-control" placeholder="供应商名称">
                         </div>
-                        <button type="submit" class="btn btn-default" v-on:click="showData">搜索</button>
+                        <button type="button" class="btn btn-default" v-on:click="showData">搜索</button>
                     </form>
                 </div>
 
@@ -50,6 +50,7 @@
                 <tbody>
                     <template v-for="(item, index) in data ">
                         <tr v-if="index>=(curpage-1)*pagesize&&index<curpage*pagesize">
+                            
                             <td>{{item.name}}</td>
                             <td>{{item.emergencyDocking}}/{{item.eDPhone}}</td>
                             <td>{{item.returnContactPerson}}/{{item.rCPPhone}}</td>
@@ -79,34 +80,17 @@
         var vue = new Vue({
             el: '#app',
             data: {
-                data: ''
-                    //     [{"basicRemark":"1",
-                    // "diamondOne":"1",
-                    // "diamondTwo":"1",
-                    // "distribution":false,
-                    // "dockingWay":"2",
-                    // "eDPhone":"21",
-                    // "emergencyDocking":"2",
-                    // "exceptionProduct":false,
-                    // "gatheringAccount":"1",
-                    // "gatheringBank":"1",
-                    // "gatheringBranch":"1",
-                    // "goldOne":"1",
-                    // "goldTwo":"1",
-                    // "id":3,}]
-                    ,
+                data: '',
                 status: '',
                 pagesize: 9,
                 curpage: 1, //当前页的页码
             },
             methods: {
+                // 点击展示数据
                 showData: function () {
                     let pageUrl = {
-                        // url: 'http://dearxiaoyun.com.cn/temp.json',
-                        // url: 'https://bird.ioliu.cn/ip',
-                        // url: 'https://bird.ioliu.cn/joke',
-                        // url:'http://dearxiaoyun.com.cn/app/index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=goods.getlist&isrecommand=1',
-                        url: 'http://10.0.0.111:8080/SIMS/servlet/siteListServlet',
+                        url: 'https://bird.ioliu.cn/joke',
+                        // url: 'http://10.0.0.111:8080/SIMS/servlet/siteListServlet',
                     };
                     new $.ajax({
                         type: 'GET',
