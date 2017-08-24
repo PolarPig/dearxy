@@ -57,6 +57,8 @@
                 </template>
             </ul>
         </nav>
+        
+        <button type="button" class="btn btn-primary btn-lg" v-on:click="showData">查询数据</button>
     </div>
     <script src="http://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -65,123 +67,33 @@
         var vue = new Vue({
             el: '#app',
             data: {
-                data: [{
-                    "basicRemark": "1",
-                    "diamondOne": "1",
-                    "diamondTwo": "1",
-                    "distribution": false,
-                    "dockingWay": "2",
-                    "eDPhone": "21",
-                    "emergencyDocking": "2",
-                    "exceptionProduct": false,
-                    "gatheringAccount": "1",
-                    "gatheringBank": "1",
-                    "gatheringBranch": "1",
-                    "goldOne": "1",
-                    "goldTwo": "1",
-                    "id": 3,
-                    "name": "eqitie",
-                    "otherRCWay": "1",
-                    "otherWay": "1",
-                    "password": "1",
-                    "productQuantity": "2",
-                    "rCAddress": "1",
-                    "rCPPhone": "1",
-                    "reconciliationDate": "1",
-                    "remitWay": "1",
-                    "returnContactPerson": "12",
-                    "sevenDayNoReasonreturn": false,
-                    "silverOne": "1",
-                    "silverTwo": "1",
-                    "statementPeriod": "1",
-                    "statementTime": "1",
-                    "statementWay": "1",
-                    "supplierAccount": "11",
-                    "tTFinshTime": "1",
-                    "tTPPhone": "1",
-                    "tTPerson": "1",
-                    "tTRrmark": "1",
-                    "technologyTransfer": false
-                }, {
-                    "basicRemark": "1",
-                    "diamondOne": "1",
-                    "diamondTwo": "1",
-                    "distribution": false,
-                    "dockingWay": "2",
-                    "eDPhone": "21",
-                    "emergencyDocking": "2",
-                    "exceptionProduct": false,
-                    "gatheringAccount": "1",
-                    "gatheringBank": "1",
-                    "gatheringBranch": "1",
-                    "goldOne": "1",
-                    "goldTwo": "1",
-                    "id": 4,
-                    "name": "tangxiaoxi",
-                    "otherRCWay": "1",
-                    "otherWay": "1",
-                    "password": "1",
-                    "productQuantity": "2",
-                    "rCAddress": "1",
-                    "rCPPhone": "1",
-                    "reconciliationDate": "1",
-                    "remitWay": "1",
-                    "returnContactPerson": "12",
-                    "sevenDayNoReasonreturn": false,
-                    "silverOne": "1",
-                    "silverTwo": "1",
-                    "statementPeriod": "1",
-                    "statementTime": "1",
-                    "statementWay": "1",
-                    "supplierAccount": "11",
-                    "tTFinshTime": "1",
-                    "tTPPhone": "1",
-                    "tTPerson": "1",
-                    "tTRrmark": "1",
-                    "technologyTransfer": false
-                }, {
-                    "basicRemark": "1",
-                    "diamondOne": "1",
-                    "diamondTwo": "1",
-                    "distribution": false,
-                    "dockingWay": "2",
-                    "eDPhone": "21",
-                    "emergencyDocking": "2",
-                    "exceptionProduct": false,
-                    "gatheringAccount": "1",
-                    "gatheringBank": "1",
-                    "gatheringBranch": "1",
-                    "goldOne": "1",
-                    "goldTwo": "1",
-                    "id": 5,
-                    "name": "vital",
-                    "otherRCWay": "1",
-                    "otherWay": "1",
-                    "password": "1",
-                    "productQuantity": "2",
-                    "rCAddress": "1",
-                    "rCPPhone": "1",
-                    "reconciliationDate": "1",
-                    "remitWay": "1",
-                    "returnContactPerson": "12",
-                    "sevenDayNoReasonreturn": false,
-                    "silverOne": "1",
-                    "silverTwo": "1",
-                    "statementPeriod": "1",
-                    "statementTime": "1",
-                    "statementWay": "1",
-                    "supplierAccount": "11",
-                    "tTFinshTime": "1",
-                    "tTPPhone": "1",
-                    "tTPerson": "1",
-                    "tTRrmark": "1",
-                    "technologyTransfer": false
-                }, ],
+                data: '',
                 status: '',
                 pagesize: 9,
                 curpage: 1, //当前页的页码
             },
             methods: {
+                showData: function () {
+                    let pageUrl = {
+                        // url: 'http://dearxiaoyun.com.cn/temp.json',
+                        // url: 'https://bird.ioliu.cn/ip',
+                        // url: 'https://bird.ioliu.cn/joke',
+                        // url:'http://dearxiaoyun.com.cn/app/index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=goods.getlist&isrecommand=1',
+                        url: 'http://10.0.0.111:8080/SIMS/servlet/siteListServlet',
+                    };
+                    $.ajax({
+                        type: 'GET',
+                        url: pageUrl.url,
+                        dataType: 'JSON',
+                        success: function (data) {
+                            // this.data = JSON.stringify(data.data);
+                            this.data = data.data;
+                        }.bind(this),
+                        error: function (data) {
+                            console.log("读取error!");
+                        }
+                    });
+                },
                 //上一页方法
                 PrePage: function (event) {
                     $(".pagination .active").prev().trigger("click");
