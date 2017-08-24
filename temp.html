@@ -8,6 +8,13 @@
         table thead tr th {
             text-align: center;
         }
+
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -30,11 +37,11 @@
                     <template v-for="(item, index) in data ">
                         <tr v-if="index>=(curpage-1)*pagesize&&index<curpage*pagesize">
                             <td>{{item.name}}</td>
-                            <td>{{item.emergencyDocking}}</td>
-                            <td>{{item.returnContactPerson}}</td>
+                            <td>{{item.emergencyDocking}}/</td>
+                            <td>{{item.returnContactPerson}}/</td>
                             <td>{{item.statementTime}}</td>
                             <td>{{item.statementWay}}</td>
-                            <td><button>查看详情</button></td>
+                            <td><a href="#">查看详情</a></td>
                         </tr>
                     </template>
                 </tbody>
@@ -169,7 +176,7 @@
                     "tTPerson": "1",
                     "tTRrmark": "1",
                     "technologyTransfer": false
-                },],
+                }, ],
                 status: '',
                 pagesize: 9,
                 curpage: 1, //当前页的页码
