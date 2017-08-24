@@ -37,11 +37,11 @@
                     <template v-for="(item, index) in data ">
                         <tr v-if="index>=(curpage-1)*pagesize&&index<curpage*pagesize">
                             <td>{{item.name}}</td>
-                            <td>{{item.emergencyDocking}}/</td>
-                            <td>{{item.returnContactPerson}}/</td>
+                            <td>{{item.emergencyDocking}}/{{item.eDPhone}}</td>
+                            <td>{{item.returnContactPerson}}/{{item.rCPPhone}}</td>
                             <td>{{item.statementTime}}</td>
                             <td>{{item.statementWay}}</td>
-                            <td><a href="#">查看详情</a></td>
+                            <td><a href="">查看详情</a></td>
                         </tr>
                     </template>
                 </tbody>
