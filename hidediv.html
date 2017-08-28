@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hidediv</title>
+</head>
+<body>
+    <div id="showDiv" style="display:block;" onclick='toggleDiv("hide")' ;>
+        <p>单击此处添加描述</p>
+    </div>
+    <input type="button" value="点我关闭" id="hideDiv" style="display:none;" onclick="toggleDiv('show')">
+    <script type="text/JavaScript">
+        function toggleDiv(id) { 
+            let show = document.getElementById("showDiv"); 
+            let hide = document.getElementById("hideDiv"); 
+            if (id == "show") { 
+                if (show.style.display == "none") { 
+                    hide.style.display = "none"; 
+                    show.style.display = "block"; 
+                }
+            }else{ 
+                if (hide.style.display == "none"){ 
+                    show.style.display = "none"; 
+                    hide.style.display = "block"; 
+                    } 
+                } 
+            }
+    </script>
+</body>
+</html>
