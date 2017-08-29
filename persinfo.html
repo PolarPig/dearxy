@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="./css/stylemain.css">
     <link rel="stylesheet" href="./css/persinfo.css">
     <style>
-    #myimg{
-        width: 100px;
-        height: 300px;
-    }
-        </style>
+        #myimg {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,6 +45,7 @@
                         </li>
                         <li>
                             <label for="dept">协议照片：</label>
+                            <!--图片展示区域-->
                             <img id="myimg" src="http://sandbox.runjs.cn/uploads/rs/72/huvtowwn/zanwu.png" />
                             <!--input[button] 触发 file click事件-->
                             <input type="button" value="选择文件" id="mybutton" class="mybtn" onclick="Id('file').click();" />
@@ -54,8 +55,6 @@
                         </li>
                         <button id="sub" type="submit" value="submit" />提交</button>
                     </ul>
-                    <!--图片展示区域-->
-
                 </form>
             </div>
 
