@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>setlvl</title>
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="Author" content="滴儿小云" />
+    <meta name="description" content="滴儿小云" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/stylemain.css">
+    <link rel="stylesheet" href="./css/persinfo.css">
+    <style>
+    #myimg{
+        width: 100px;
+        height: 300px;
+    }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="head">
+                <a class="left" href="#">
+                    <div class="imgout">
+                        <img src="" alt="">
+                    </div>
+                    <span>Allen</span>
+                    <i class="fkinhead"></i>
+                    <span>等级：区域代理</span>
+                </a>
+            </div>
+            <div class="body">
+                <form action="" method="">
+                    <ul>
+                        <li>
+                            <label for="doc">真实姓名：</label>
+                            <input type="text" name="doc" placeholder="请输入您的真实姓名" />
+                        </li>
+                        <li>
+                            <label for="hosp">身份证号：</label>
+                            <input type="text" name="hosp" placeholder="请输入您的身份证号码" />
+                        </li>
+                        <li>
+                            <label for="dept">协议照片：</label>
+                            <img id="myimg" src="http://sandbox.runjs.cn/uploads/rs/72/huvtowwn/zanwu.png" />
+                            <!--input[button] 触发 file click事件-->
+                            <input type="button" value="选择文件" id="mybutton" class="mybtn" onclick="Id('file').click();" />
+                            <!--file 隐藏起来  触发onchange事件-->
+                            <input type="file" name="file" accept="image/png,image/jpg,image/jpeg" id="file" onchange="changeToop();" style="display:none;"
+                            />
+                        </li>
+                        <button id="sub" type="submit" value="submit" />提交</button>
+                    </ul>
+                    <!--图片展示区域-->
+
+                </form>
+            </div>
+
+            <div class="footer">
+                <ul>
+                    <li><a href="./setlvl.html">设置等级</a></li>
+                    <i class="fk"></i>
+                    <li><a href="#">个人信息</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        //定义id选择器
+        function Id(id) {
+            return document.getElementById(id);
+        }
+
+        function changeToop() {
+            var file = Id("file");
+            if (file.value == '') {
+                //设置默认图片
+                Id("myimg").src = 'http://sandbox.runjs.cn/uploads/rs/72/huvtowwn/zanwu.png';
+            } else {
+                preImg("file", "myimg");
+            }
+        }
+        //获取input[file]图片的url Important
+        function getFileUrl(fileId) {
+            var url;
+            var file = Id(fileId);
+            var agent = navigator.userAgent;
+            if (agent.indexOf("MSIE") >= 1) {
+                url = file.value;
+            } else if (agent.indexOf("Firefox") > 0) {
+                url = window.URL.createObjectURL(file.files.item(0));
+            } else if (agent.indexOf("Chrome") > 0) {
+                url = window.URL.createObjectURL(file.files.item(0));
+            }
+            return url;
+        }
+        //读取图片后预览
+        function preImg(fileId, imgId) {
+            var imgPre = Id(imgId);
+            imgPre.src = getFileUrl(fileId);
+        }
+    </script>
+</body>
+
+</html>

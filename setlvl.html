@@ -9,143 +9,8 @@
     <meta name="description" content="滴儿小云" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none;
-            border: none;
-        }
-
-        html {
-            font-family: "Microsoft yahei", "微软雅黑", "sans-serif";
-            /* 375px屏幕宽度下 = 15px字体 */
-            font-size: 4vw;
-        }
-
-        body {
-            background: #eeeeee
-        }
-
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            text-decoration: none
-        }
-
-        a {
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .left span,
-        .right span {
-            margin-left: 2.6666vw;
-        }
-
-        .imgout {
-            display: inline-block;
-            width: 10.67vw;
-            height: 10.67vw;
-            border-radius: 50%;
-            background-color: red;
-        }
-
-        li {
-            width: 100%;
-            height: 16vw;
-            margin-bottom: 1px;
-            background: #fff;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .left {
-            font-size: 4vw;
-            margin-left: 4vw;
-        }
-
-        .right {
-            font-size: 3.73333vw;
-            margin-right: 4vw;
-        }
-
-        .right img {
-            width: 3.7333333vw;
-            height: 3.7333333vw;
-        }
-
-        #set {
-            display: none;
-            position: fixed;
-            z-index: 99;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        #set img {
-            position: absolute;
-            right: 0;
-            top: -10vw;
-        }
-
-        .inset {
-            width: 73.333333vw;
-            height: 42vw;
-            background-color: #fff;
-            margin: auto;
-            border-radius: 10px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 20%;
-        }
-        /*
-        @ setLevelTitle 
-        @ setLevelName
-        */
-
-        .slT,
-        .slN {
-            line-height: 4.2666666vw;
-            font-size: 4.266666vw;
-            color: #333;
-            text-align: center;
-            margin-top: 6.666666vw;
-        }
-        /* 
-        @ setLevelStatus
-        */
-
-        .slS {
-            margin-top: 6.666666vw;
-            display: flex;
-            padding-left: 6vw;
-        }
-
-        .slS button {
-            justify-content: space-around;
-            width: 18.666666vw;
-            color: #fff;
-            background-color: #333;
-            line-height: 6.666667vw;
-            font-size: 3.733333vw;
-            margin-right: 2.666666vw;
-            text-align: center;
-        }
-
-        .slS button:focus {
-            background-color: #db0000;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/stylemain.css">
+    <link rel="stylesheet" href="./css/setlvl.css">
 </head>
 
 <body>
@@ -181,14 +46,21 @@
                 <div class="slN">将<span>Allen</span>设置为</div>
                 <div class="slS">
                     <button>业务员</button>
-                    <button>医生</button>
+                    <button onclick="jump()">医生</button>
                     <button>顾客</button>
                 </div>
             </div>
         </div>
-        <div class="footer"></div>
+        <div class="footer">
+            <ul>
+                <li><a href="#">设置等级</a></li>
+                <i class="fk"></i>
+                <li><a href="./persinfo.html">个人信息</a></li>
+            </ul>
+        </div>
     </div>
     <script type="text/javascript">
+        // document.body.addEventListener('touchstart', function () {});
         // close
         function cls() {
             document.getElementById("set").style.display = "none";
@@ -196,6 +68,10 @@
         // pop-up
         function pop() {
             document.getElementById("set").style.display = "block";
+        }
+
+        function jump() {
+            window.open("fillinfo.html","_self");
         }
     </script>
 </body>

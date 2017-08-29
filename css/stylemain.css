@@ -1,0 +1,60 @@
+/* 版本信息？ */
+
+/* 样式初始化&公共部分 */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+}
+
+html {
+    font-family:"PingFang-SC-Medium","Microsoft yahei", "微软雅黑", "sans-serif";
+    /* 375px屏幕宽度下 = 15px字体 */
+    font-size: 4vw;
+}
+
+body {
+    background: #f6f6f6
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 13.067vw;
+    line-height: 13.067vw;
+    background: #fff;
+    bottom: 0;
+}
+
+.footer ul {
+    display: flex;
+}
+
+
+/* @竖线 */
+
+.fk {
+    margin: 3vw auto;
+    width: 2px;
+    background: #333;
+}
+
+.footer ul li {
+    flex: 1;
+    text-align: center;
+}
+
+.footer ul li a {
+    font-size: 4.8vw;
+    color: #333;
+}
