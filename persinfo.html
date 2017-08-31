@@ -11,12 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="./css/stylemain.css">
     <link rel="stylesheet" href="./css/persinfo.css">
-    <style>
-        #myimg {
-            width: 100px;
-            height: 100px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/upload.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -45,14 +41,21 @@
                         </li>
                         <li>
                             <label for="dept">协议照片：</label>
-                            <!--图片展示区域-->
-                            <img id="myimg" src="http://sandbox.runjs.cn/uploads/rs/72/huvtowwn/zanwu.png" />
-                            <!--input[button] 触发 file click事件-->
-                            <input type="button" value="选择文件" id="mybutton" class="mybtn" onclick="Id('file').click();" />
-                            <!--file 隐藏起来  触发onchange事件-->
-                            <input type="file" name="file" accept="image/png,image/jpg,image/jpeg" id="file" onchange="changeToop();" style="display:none;"
-                            />
+                            <div class="z_photo upimg-div clearfix">
+                                <section class="z_file fl">
+                                    <img src="img/a11.png" class="add-img">
+                                    <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple
+                                    />
+                                </section>
+                                <aside class="mask works-mask">
+                                    <div class="mask-content">
+                                        <p class="del-p">您确定要删除作品图片吗？</p>
+                                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                                    </div>
+                                </aside>
+                            </div>
                         </li>
+                        <p class="ultext">请上传协议照片，最多不超过5张。</p>
                         <button id="sub" type="submit" value="submit" />提交</button>
                     </ul>
                 </form>
@@ -67,41 +70,7 @@
             </div>
         </div>
     </div>
-    <script>
-        //定义id选择器
-        function Id(id) {
-            return document.getElementById(id);
-        }
-
-        function changeToop() {
-            var file = Id("file");
-            if (file.value == '') {
-                //设置默认图片
-                Id("myimg").src = 'http://sandbox.runjs.cn/uploads/rs/72/huvtowwn/zanwu.png';
-            } else {
-                preImg("file", "myimg");
-            }
-        }
-        //获取input[file]图片的url Important
-        function getFileUrl(fileId) {
-            var url;
-            var file = Id(fileId);
-            var agent = navigator.userAgent;
-            if (agent.indexOf("MSIE") >= 1) {
-                url = file.value;
-            } else if (agent.indexOf("Firefox") > 0) {
-                url = window.URL.createObjectURL(file.files.item(0));
-            } else if (agent.indexOf("Chrome") > 0) {
-                url = window.URL.createObjectURL(file.files.item(0));
-            }
-            return url;
-        }
-        //读取图片后预览
-        function preImg(fileId, imgId) {
-            var imgPre = Id(imgId);
-            imgPre.src = getFileUrl(fileId);
-        }
-    </script>
+    <script src="js/imgUp.js"></script>
 </body>
 
 </html>

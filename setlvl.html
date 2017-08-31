@@ -45,9 +45,9 @@
                 <div class="slT">设置等级</div>
                 <div class="slN">将<span>Allen</span>设置为</div>
                 <div class="slS">
-                    <button>业务员</button>
+                    <button onclick="alert('恭喜您设置成功！');">业务员</button>
                     <button onclick="jump()">医生</button>
-                    <button>顾客</button>
+                    <button onclick="alert('恭喜您设置成功！');">顾客</button>
                 </div>
             </div>
         </div>
@@ -69,9 +69,9 @@
         function pop() {
             document.getElementById("set").style.display = "block";
         }
-
+        // 本窗口跳转设置医生信息页面
         function jump() {
-            window.open("fillinfo.html","_self");
+            window.open("fillinfo.html", "_self");
         }
     </script>
 </body>

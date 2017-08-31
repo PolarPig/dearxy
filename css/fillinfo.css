@@ -63,9 +63,9 @@
 }
 
 .body input {
-    border: 1px solid #999;
-    width: 62.666666vw;
-    height: 8.8vw;
+    border: .1vw solid #999;
+    width: 62.4vw;
+    height: 8.5333333vw;
     border-radius: 5px;
     text-indent: 3vw;
     font-size: 4vw;

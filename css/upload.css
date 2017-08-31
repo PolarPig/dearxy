@@ -1,0 +1,136 @@
+/* 上传图片样式 */
+
+.z_photo {
+    margin-top: -8vw;
+    margin-left: 21.333333vw;
+}
+
+.z_photo .z_file {
+    position: relative;
+}
+
+.z_file .file {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.z_photo .up-section {
+    position: relative;
+    margin-right: 1.333333vw;
+    margin-bottom: 1.333333vw;
+}
+
+.up-section .close-upimg {
+    position: absolute;
+    top: .8vw;
+    right: 0.9vw;
+    /* display: none; */
+    z-index: 10;
+}
+
+.up-section:hover .close-upimg {
+    display: block;
+}
+
+
+/* 增加上传图片边框及圆角 */
+
+.z_photo .up-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: .1vw solid red;
+    border-radius: .9vw;
+}
+
+.loading {
+    background: url(../img/loading.gif) no-repeat center;
+    border: .1vw solid red;
+    border-radius: .9vw;
+}
+
+.up-opcity {
+    opacity: 0;
+}
+
+.img-name-p {
+    display: none;
+}
+
+.upimg-div .up-section,
+.img-box .upimg-div .z_file {
+    width: 17.333333vw;
+    height: 22.666666vw;
+}
+
+
+/* 增加添加图片边框及圆角 */
+
+.z_file .add-img {
+    display: block;
+    width: 17.333333vw;
+    height: 22.666666vw;
+    border: .1vw solid red;
+    border-radius: .9vw;
+    padding: 9.333333vw 6.666666vw;
+}
+
+
+/*遮罩层样式*/
+
+.mask {
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+
+.mask .mask-content {
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -80px;
+    background: white;
+    height: 160px;
+    text-align: center;
+}
+
+.mask .mask-content .del-p {
+    color: #555;
+    height: 94px;
+    line-height: 94px;
+    font-size: 18px;
+    border-bottom: .1vw solid #D1D1D1;
+}
+
+.mask-content .check-p {
+    height: 66px;
+    line-height: 66px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.mask-content .check-p span {
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+    color: #d4361d;
+    font-size: 18px;
+}
+
+.check-p .del-com {
+    border-right: .1vw solid #D1D1D1;
+}

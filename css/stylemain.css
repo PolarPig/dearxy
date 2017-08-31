@@ -1,16 +1,23 @@
 /* 版本信息？ */
 
+
 /* 样式初始化&公共部分 */
+
 * {
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
     border: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /* Firefox */
+    -webkit-box-sizing: border-box;
+    /* Safari */
 }
 
 html {
-    font-family:"PingFang-SC-Medium","Microsoft yahei", "微软雅黑", "sans-serif";
+    font-family: "PingFang SC", "Microsoft yahei", "微软雅黑", "sans-serif";
     /* 375px屏幕宽度下 = 15px字体 */
     font-size: 4vw;
 }
@@ -19,12 +26,33 @@ body {
     background: #f6f6f6
 }
 
+body::-webkit-scrollbar {
+    width: 0px;
+    height: 0px
+}
+
 a,
 a:link,
 a:visited,
 a:hover,
 a:active {
     text-decoration: none;
+}
+
+.fl {
+    float: left;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
 }
 
 .footer {
@@ -44,7 +72,7 @@ a:active {
 /* @竖线 */
 
 .fk {
-    margin: 3vw auto;
+    margin: 3.5vw auto;
     width: 2px;
     background: #333;
 }
