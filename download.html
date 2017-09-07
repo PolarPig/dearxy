@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>download</title>
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="Author" content="滴儿小云" />
+    <meta name="description" content="滴儿小云" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/stylemain.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            background: url(./img/bg.png);
+            background-size: 100%;
+        }
+
+        img {
+            position: absolute;
+            margin: auto;
+            bottom: 5rem;
+            height: 3rem;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="#" id="dl"> <img src="./img/dl.png" alt=""></a>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            var u = navigator.userAgent,
+                app = navigator.appVersion;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+            if (isAndroid == true) {
+                $("#dl").attr("href", "http://www.baidu.com/");
+            } else if (isiOS == true) {
+                $("#dl").attr("href",
+                    "https://itunes.apple.com/us/app/%E7%88%B1%E5%A4%9A%E8%90%A5%E5%85%BB%E7%B4%A0/id1232152924?mt=8&uo=4"
+                );
+            }
+        });
+    </script>
+</body>
+
+</html>

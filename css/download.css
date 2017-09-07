@@ -1,0 +1,19 @@
+/* 下载页样式 */
+
+body {
+    background: url(../img/bg.png);
+    background-size: cover;
+}
+
+.download {
+    position: absolute;
+    margin: auto;
+    bottom: 75px;
+    height: 45px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}

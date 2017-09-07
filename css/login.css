@@ -1,0 +1,75 @@
+/* 登陆页样式 */
+
+body {
+    background: #f8f8f8;
+}
+
+.reg-logo {
+    display: block;
+    font-size: 0;
+    text-align: center;
+    margin-top: 2.666666rem;
+    margin-bottom: 2.666666rem;
+}
+
+.reg-logo img {
+    width: 4.3333333rem;
+    height: 4.3333333rem;
+}
+
+.reg-form ul {
+    margin-left: 1rem;
+}
+
+#phone,
+#password {
+    width: 23rem;
+    height: 3rem;
+    border: .1vw solid #e5e5e5;
+    color: #03366d;
+    margin-bottom: 0.8rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    text-indent: 3.733333rem;
+    background-repeat: no-repeat;
+    background-position: 1rem;
+    background-size: 1.8rem;
+}
+
+#phone {
+    background-image: url(../img/sj@2x.png);
+}
+
+#password {
+    background-image: url(../img/mima@2x.png);
+}
+
+#forget {
+    position: absolute;
+    right: 0.5rem;
+    font-size: 0.9333333rem;
+    color: #999;
+    margin-top: -0.3rem;
+}
+
+.reg-form button {
+    display: block;
+    width: 21rem;
+    height: 3rem;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #03366d;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+}
+
+.reg-reg {
+    text-align: center;
+    margin-top: 0.6rem;
+    color: #999;
+}
+
+.reg-reg a {
+    color: #03366d;
+}

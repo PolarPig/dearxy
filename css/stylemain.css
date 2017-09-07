@@ -19,6 +19,7 @@
 html {
     font-family: "PingFang SC", "Microsoft yahei", "微软雅黑", "sans-serif";
     /* 375px屏幕宽度下 = 15px字体 */
+    /* 750px屏幕宽度下 = 30px字体 */
     font-size: 4vw;
 }
 
