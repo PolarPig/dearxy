@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>fillinfo</title>
+    <title>confirm</title>
     <meta http-equiv="Content-Language" content="zh-CN" />
     <meta name="Author" content="滴儿小云" />
     <meta name="description" content="滴儿小云" />
@@ -11,39 +11,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="./css/stylemain.css">
     <link rel="stylesheet" href="./css/fillinfo.css">
+    <style>
+        .body {
+            height: 60vw;
+        }
+
+        .conf-head {
+            text-align: center;
+            width: 100%;
+            height: 16vw;
+            line-height: 16vw;
+            margin-bottom: 1px;
+            background: #fff;
+        }
+
+        .conf-head a {
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="main">
-            <div class="head">
-                <a class="left" href="#">
-                    <div class="imgout">
-                        <img src="" alt="">
-                    </div>
-                    <span>Allen</span>
-                    <i class="fkinhead"></i>
-                    <span>医生</span>
-                </a>
+            <div class="conf-head">
+                <a class="left" href="#">确认并完善个人信息</a>
             </div>
             <div class="body">
                 <form action="" method="">
                     <ul>
                         <li>
                             <label for="doc">医生姓名：</label>
-                            <input type="text" name="doc" placeholder="请输入医生真实姓名" />
+                            <input type="text" name="doc" placeholder="请输入您的真实姓名" />
                         </li>
                         <li>
                             <label for="phone">医生电话：</label>
-                            <input type="text" name="phone" placeholder="请输入医生联系电话" />
+                            <input type="text" name="phone" placeholder="请输入您的联系电话" />
                         </li>
                         <li>
-                            <label for="hosp">医院名称：</label>
-                            <input type="text" name="hosp" placeholder="请输入医生所在医院名称" />
-                        </li>
-                        <li>
-                            <label for="dept">科室名称：</label>
-                            <input type="text" name="dept" placeholder="请输入医生所在科室名称" />
+                            <label for="hosp">身份证号：</label>
+                            <input type="text" name="hosp" placeholder="请输入您的身份证号码" />
                         </li>
                     </ul>
                     <button id="sub" type="submit" value="submit" />确定</button>

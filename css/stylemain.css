@@ -32,16 +32,20 @@ body::-webkit-scrollbar {
     height: 0px
 }
 
-a,
+/* a,
 a:link,
 a:visited,
 a:hover,
 a:active {
     text-decoration: none;
-}
+} */
 
 .fl {
     float: left;
+}
+
+.fr {
+    float: right;
 }
 
 .clearfix:after,

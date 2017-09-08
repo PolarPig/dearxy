@@ -1,10 +1,6 @@
 /* 登陆页样式 */
 
-body {
-    background: #f8f8f8;
-}
-
-.reg-logo {
+.log-logo {
     display: block;
     font-size: 0;
     text-align: center;
@@ -12,12 +8,12 @@ body {
     margin-bottom: 2.666666rem;
 }
 
-.reg-logo img {
+.log-logo img {
     width: 4.3333333rem;
     height: 4.3333333rem;
 }
 
-.reg-form ul {
+.log-form ul {
     margin-left: 1rem;
 }
 
@@ -52,7 +48,7 @@ body {
     margin-top: -0.3rem;
 }
 
-.reg-form button {
+.log-form button {
     display: block;
     width: 21rem;
     height: 3rem;
@@ -64,12 +60,22 @@ body {
     border-radius: 0.3rem;
 }
 
-.reg-reg {
+.log-reg {
     text-align: center;
     margin-top: 0.6rem;
     color: #999;
 }
 
-.reg-reg a {
+.log-reg a {
     color: #03366d;
+}
+
+.log-wechat {
+    text-align: center;
+    font-size: 0;
+    margin-top: 5.666666rem;
+}
+
+.log-wechat img {
+    width: 3.3333333rem;
 }

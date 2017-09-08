@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>toDoList</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: "PingFang SC", "Microsoft yahei", "微软雅黑", "sans-serif";
+        }
+
+        body {
+            background: #f6f6f6
+        }
+
+        body::-webkit-scrollbar {
+            width: 0px;
+            height: 0px
+        }
+
+        a,
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .btn {
+            width: 90px;
+            height: 30px;
+            opacity: 0.5;
+            border: none;
+            margin-right: 10px;
+        }
+
+        .ipt {
+            width: 270px;
+            height: 30px;
+            box-shadow: 0 0 8px #9668db;
+        }
+
+        .liDiv {
+            line-height: 30px;
+            margin-top: 30px;
+            font-size: 24px;
+        }
+
+        input[type=checkbox] {
+            zoom: 200%;
+        }
+
+        .complete {
+            color: blue;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vue-todolist" class="todolistDiv">
+        <h1>toDoList</h1>
+        <button v-on:click="add" class="btn">添加待办事件</button>
+        <input class="ipt" type="text" v-model="inputVaule" v-on:keyup.enter="add" />
+        <ul>
+            <li v-for="item in items">
+                <div class="liDiv">
+                    <button v-on:click="removeTodo(item)" class="btn">删除完成事件</button>
+                    <label v-bind:class="{ complete:item.completed }">{{item.text}}</label>
+                    <input type="checkbox" v-model="item.completed">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script>
+        //localStroage保存数据
+        var STORAGE_KEY = 'todos-vuejs' //名称
+        var todoStorage = {
+            fetch: function () {
+                var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+                todos.forEach(function (todo, index) {
+                    todo.id = index
+                })
+                todoStorage.uid = todos.length
+                return todos
+            },
+            save: function (todos) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+            }
+        }
+
+        var vm = new Vue({
+            el: '#vue-todolist',
+            data: {
+                items: todoStorage.fetch(), //直接从localstroage拿数据
+                inputVaule: ""
+            },
+            mounted: function () { /*ready*/
+
+            },
+            methods: {
+                add: function () {
+                    var _this = this;
+                    this.items.push({
+                        text: this.inputVaule,
+                        completed: true
+                    });
+                    this.inputVaule = "";
+                },
+                removeTodo: function (todo) {
+                    this.items.splice(this.items.indexOf(todo), 1)
+                }
+            },
+
+            watch: {
+                items: {
+                    handler: function (items) {
+                        todoStorage.save(items)
+                    },
+                    deep: true
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

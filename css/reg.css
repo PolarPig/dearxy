@@ -1,0 +1,61 @@
+/* 注册页样式 */
+
+.reg-form ul {
+    margin-top: 1.333333rem;
+    margin-left: 1rem;
+}
+
+.reg-form input {
+    width: 23rem;
+    height: 3rem;
+    border: .1vw solid #e5e5e5;
+    color: #03366d;
+    margin-bottom: .666666rem;
+    border-radius: .3rem;
+    font-size: 1rem;
+    text-indent: 1rem;
+    background-repeat: no-repeat;
+    background-position: 1rem;
+    background-size: 1.8rem;
+}
+
+#captcha {
+    width: 16.133333rem;
+}
+
+#reg-send {
+    width: 6.3333333rem;
+    height: 3rem;
+    margin-left: .166666rem;
+    background-color: #03366d;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: .3rem;
+}
+
+#reg-sub {
+    display: block;
+    width: 21rem;
+    height: 3rem;
+    margin: auto;
+    margin-top: 1rem;
+    background-color: #03366d;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: .3rem;
+}
+
+.reg-agr {
+    line-height: 1rem;
+    font-size: .8rem;
+    margin-left: 2rem;
+    margin-top: .4rem;
+    color: #999;
+    background: url(../img/right@2x.png) no-repeat;
+    background-size: 1rem;
+    padding-left: 1.3rem;
+}
+
+.reg-agr a {
+    color: #03366d;
+}
