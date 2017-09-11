@@ -13,11 +13,12 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <style>
         body {
+            text-align: center;
             background: url(./img/bg.png);
             background-size: 100%;
         }
 
-        img {
+        .dl-download a img {
             position: absolute;
             margin: auto;
             bottom: 5rem;
@@ -34,7 +35,15 @@
 </head>
 
 <body>
-    <a href="#" id="dl"> <img src="./img/dl.png" alt=""></a>
+    <div class="dl-logo">
+        <img src="./img/logo@2x.png" alt="">
+        <p>爱多，给你更多健康的爱</p>
+    </div>
+    <div class="dl-qrcode">
+        <img src="./img/qrcode.png" alt="">
+        <p>关注爱多公众号</p>
+    </div>
+    <div class="dl-download"><a href="#" id="dl"><img src="./img/dl.png" alt=""></a></div>
     <script type="text/javascript">
         $(document).ready(function (e) {
             var u = navigator.userAgent,
