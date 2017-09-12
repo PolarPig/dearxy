@@ -18,17 +18,37 @@
             background-size: 100%;
         }
 
+        .dl-logo,
+        .dl-qrcode,
+        .dl-download {
+            font-size: 0;
+        }
+
+        .dl-logo p {
+            margin-top: 4vw;
+            color: #03366D;
+            font-size: 1.5rem;
+        }
+
+        .dl-qrcode p {
+            margin-top: 4vw;
+            color: #03366D;
+            font-size: 1.1rem;
+        }
+
+        .dl-logo img {
+            width: 21.3333333vw;
+            margin-top: 16%;
+        }
+
+        .dl-qrcode img {
+            margin-top: 16vw;
+            width: 33.333333vw;
+        }
+
         .dl-download a img {
-            position: absolute;
-            margin: auto;
-            bottom: 5rem;
-            height: 3rem;
-            left: 50%;
-            -webkit-transform: translateX(-50%);
-            -moz-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-            -o-transform: translateX(-50%);
-            transform: translateX(-50%);
+            margin-top: 20vw;
+            width: 77.333333vw;
         }
     </style>
 
@@ -51,7 +71,7 @@
             var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
             var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
             if (isAndroid == true) {
-                $("#dl").attr("href", "http://www.baidu.com/");
+                $("#dl").attr("href", "https://fir.im/bxyg");
             } else if (isiOS == true) {
                 $("#dl").attr("href",
                     "https://itunes.apple.com/us/app/%E7%88%B1%E5%A4%9A%E8%90%A5%E5%85%BB%E7%B4%A0/id1232152924?mt=8&uo=4"
