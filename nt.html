@@ -20,8 +20,7 @@
         <li><strong><span style="color: #27a0d7">用户列表</span></strong></li>
       </ol>
       <form class="form-inline" role="form" style="float: left; width: 100%" method="post" id="queryForm">
-        
-        
+
         <div class="form-group">
           <button type="button" id="queryBtn" onclick="doQuery();" class="btn btn-primary">查询</button>
         </div>
@@ -50,7 +49,7 @@
     }
 
     function initTable() {
-      // var url = "user.do?method=listUsers&random=" + Math.random();
+      var url = "user.do?method=listUsers&random=" + Math.random();
       $('#demo-table').bootstrapTable({
         method: 'POST',
         dataType: 'json',
@@ -61,7 +60,7 @@
         url: url,
         height: $(window).height() - 110,
         width: $(window).width(),
-        showColumns: true,
+        showColumns: false,
         pagination: true,
         queryParams: queryParams,
         minimumCountColumns: 2,
@@ -77,49 +76,39 @@
             title: 'Sort No.',
             formatter: function (value, row, index) {
               return index + 1;
-            }
+            },
+
           },
           {
-            field: 'id',
-            title: 'User ID',
+            field: 'name',
+            title: '供应商名称',
             align: 'center',
             valign: 'middle',
-            sortable: true
           }, {
-            field: 'institutionCode',
-            title: 'Institution Code',
+            field: 'inTel',
+            title: '紧急对接人及联系方式',
             align: 'center',
             valign: 'middle',
-            sortable: true
           }, {
-            field: 'institutionName',
-            title: 'Institution Name',
+            field: 'outTel',
+            title: '退换货联系人及联系方式',
             align: 'center',
             valign: 'middle'
           }, {
-            field: 'loginId',
-            title: 'Login Name',
+            field: 'closeTime',
+            title: '结单时间',
+            align: 'center',
+            valign: 'middle'
+          }, {
+            field: 'closeType',
+            title: '结单方式',
+            align: 'center',
+            valign: 'middle'
+          }, {
+            field: 'setOther',
+            title: '操作',
             align: 'center',
             valign: 'middle',
-            sortable: true
-          }, {
-            field: 'realName',
-            title: 'Real Name',
-            align: 'center',
-            valign: 'middle'
-          }, {
-            field: 'createTime',
-            title: 'Create Time',
-            align: 'center',
-            valign: 'left',
-            formatter: function (value, row, index) {
-              return new Date(value).format('yyyy-MM-dd hh:mm:ss');
-            }
-          }, {
-            field: 'homeAddress',
-            title: 'Address',
-            align: 'center',
-            valign: 'middle'
           }
         ]
       });
