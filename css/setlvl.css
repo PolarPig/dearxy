@@ -1,13 +1,23 @@
 /* 设置等级样式 */
 
+.main ul li {
+    width: 100%;
+    height: 21.333333vw;
+    margin-bottom: 1px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .main ul li a {
     color: #333;
     display: flex;
     align-items: center;
 }
 
-.left span {
-    margin-left: 2.6666vw;
+.left {
+    margin-left: 4vw;
 }
 
 .imgout {
@@ -18,24 +28,34 @@
     background-color: red;
 }
 
-.main ul li {
-    width: 100%;
-    line-height: 16vw;
-    margin-bottom: 1px;
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
+.left span {
+    margin-left: 2.6666vw;
 }
 
-.left {
-    font-size: 4vw;
-    margin-left: 4vw;
+.left span p:first-child {
+    font-size: 4.2666666vw;
+    line-height: 4.2666666vw;
+}
+
+.left span .follow-status {
+    margin-top: 3.2vw;
+    font-size: 3.4666666vw;
+    line-height: 3.4666666vw;
+}
+
+.left span .follow {
+    display: block;
+    color: #0012fe;
+}
+
+.left span .unfollow {
+    display: none;
+    color: #999
 }
 
 .right {
     font-size: 4.266666vw;
     margin-right: 4vw;
-    margin-top: 2.666666vw;
     width: 23.2vw;
     height: 10.666666vw;
     color: #fff;
@@ -79,7 +99,7 @@
         @ setLevelName
         */
 
-.slT{
+.slT {
     font-weight: bold;
     line-height: 5.333333vw;
     font-size: 5.333333vw;
@@ -87,13 +107,14 @@
     text-align: center;
     margin-top: 9.333333vw;
 }
-.slN{
+
+.slN {
     line-height: 4.8vw;
     font-size: 4.8vw;
     color: #333;
     text-align: center;
     margin-top: 8vw;
-} 
+}
 
 
 /* 
