@@ -140,5 +140,5 @@
 }
 
 .footer ul :first-child a {
-    color: #db0000;
+    color: rgba(51, 51, 51, 1);
 }

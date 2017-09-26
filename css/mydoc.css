@@ -1,0 +1,3 @@
+.footer ul :nth-child(2) a {
+    color: rgba(51, 51, 51, 1);
+}

@@ -50,7 +50,6 @@
                 <tbody>
                     <template v-for="(item, index) in data ">
                         <tr v-if="index>=(curpage-1)*pagesize&&index<curpage*pagesize">
-                            
                             <td>{{item.name}}</td>
                             <td>{{item.emergencyDocking}}/{{item.eDPhone}}</td>
                             <td>{{item.returnContactPerson}}/{{item.rCPPhone}}</td>
@@ -99,6 +98,7 @@
                         success: function (data) {
                             // this.data = JSON.stringify(data.data);
                             this.data = data.data;
+                            console.log("");
                         }.bind(this),
                         error: function (data) {
                             console.log("读取error!");

@@ -32,6 +32,7 @@ body::-webkit-scrollbar {
     height: 0px
 }
 
+
 /* a,
 a:link,
 a:visited,
@@ -73,21 +74,28 @@ a:active {
     display: flex;
 }
 
-
-/* @竖线 */
-
-.fk {
-    margin: 3.5vw auto;
-    width: 2px;
-    background: #333;
-}
-
 .footer ul li {
     flex: 1;
     text-align: center;
 }
 
 .footer ul li a {
-    font-size: 4.8vw;
-    color: #333;
+    padding-left: 6vw;
+    font-size: 4vw;
+    color: rgba(153, 153, 153, 1);
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-size: 4vw;
+}
+
+.footer .icon-set {
+    background-image: url(../img/set@2x.png);
+}
+
+.footer .icon-doc {
+    background-image: url(../img/doc@2x.png);
+}
+
+.footer .icon-per {
+    background-image: url(../img/per@2x.png);
 }

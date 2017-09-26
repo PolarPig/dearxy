@@ -42,53 +42,27 @@
     line-height: initial;
 }
 
-.body {
+.info-body ul li a {
+    display: block;
+    margin-top: 1px;
     width: 100%;
-    min-height:92vw;
-    background: #fff;
+    height: 12vw;
+    font-size: 0;
+    line-height: 12vw;
+    color: #333;
+    background: rgba(255, 255, 255, 1) url(../img/rarr.png) no-repeat;
+    background-size: 2.666666vw 4vw;
+    background-position: 95% 50%;
 }
 
-.body ul {
-    margin-left: 4vw;
-    padding-top: 5.333333vw;
-}
-
-.body ul li {
-    line-height: 8.8vw;
-    margin-bottom: 4vw;
-}
-
-.body label {
-    vertical-align: top;
-}
-
-.body input {
-    border: .1vw solid #999;
-    width: 62.933333vw;
-    height: 8.5333333vw;
-    border-radius: 5px;
-    text-indent: 3vw;
+.info-body ul li a span {
     font-size: 4vw;
-}
-.ultext{
-    margin-top: 5.333333vw;
-    color:#999;
-    font-size: 3.2vw;
-    margin-left:22vw;
-}
-#sub {
-    width: 53.333333vw;
-    height: 8.8vw;
-    background: #db0000;
-    border-radius: 5px;
-    font-size: 4.266666vw;
-    color: #fff;
-    margin: 6.666666vw auto 6.666666vw 20vw;
+    margin-left: 4vw;
 }
 
 
 /* 底部选中临时效果 */
 
 .footer ul :last-child a {
-    color: #db0000;
+    color: rgba(51, 51, 51, 1);
 }
