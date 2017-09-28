@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>aplbook</title>
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="Author" content="滴儿小云" />
+    <meta name="description" content="滴儿小云" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/stylemain.css">
+    <link rel="stylesheet" href="./css/aplbook.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        function aplDown() {
+            var a = document.getElementById("aplNumber");
+            var b = a.value;
+            var c = parseInt(b);
+            if (c > 40) {
+                c = c - 40
+            }
+            a.value = c
+        }
+
+        function aplUp() {
+            var a = document.getElementById("aplNumber");
+            var b = a.value;
+            var c = parseInt(b);
+            c = c + 40;
+            a.value = c
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <div class="main">
+                <div class="apl-number">
+                    <div class="apl apl-number-in">
+                        申请数量：
+                        <span class="apl-number-wrap"><span class="btn-up" href="javascript:void(0);" onclick="aplUp();">+</span>
+                        <input readonly type="number" id="aplNumber" value="40" />
+                        <span class="btn-down" href="javascript:void(0);" onclick="aplDown();">-</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="apl-get">
+                    <div class="apl apl-get-in">是否自取：
+                        <select id="get-status">
+                            <option value='yes'>是</option>
+                            <option value='no'>否</option>
+                        </select>
+                    </div>
+
+                    <div class="status-info">
+                        <div>收件人：<input style="margin-left:4vw;" type="text" placeholder="请输入收件人姓名"></div>
+                        <div>联系方式：<input type="number" placeholder="请输入收件人联系方式"></div>
+                        <div>收件地址：<input type="text" placeholder="请输入收件地址"></div>
+                    </div>
+                </div>
+
+                <div class="apl-prt">
+                    <div class="apl-prt-in"> 二维码自印：
+                        <select id="prt-status">
+                            <option value='yes'>是</option>
+                            <option value='no'>否</option>
+                        </select>
+                    </div>
+                    <p>如自行打印二维码则选“是”</p>
+                </div>
+            </div>
+            <button class="apl-btn">提交申请</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $('#get-status').change(function () {
+            $(this).val() === 'yes' ? $('.status-info').show() : $('.status-info').hide()
+        })
+    </script>
+</body>
+
+</html>
