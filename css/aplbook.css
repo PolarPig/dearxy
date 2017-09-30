@@ -104,3 +104,11 @@
     font-size: 4vw;
     padding-left: 2vw;
 }
+
+#get-status option:before,
+#prt-status option:before {
+    content: "台词：-";
+    background-color: yellow;
+    color: red;
+    font-weight: bold;
+}

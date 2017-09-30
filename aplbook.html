@@ -29,7 +29,7 @@
             var c = parseInt(b);
             c = c + 40;
             a.value = c
-        };
+        }
     </script>
 </head>
 
@@ -40,9 +40,14 @@
                 <div class="apl-number">
                     <div class="apl apl-number-in">
                         申请数量：
-                        <span class="apl-number-wrap"><span class="btn-up" href="javascript:void(0);" onclick="aplUp();">+</span>
+                        <span class="apl-number-wrap">
+                            <span class="btn-up" href="javascript:void(0);" onclick="aplUp();">
+                                +
+                            </span>
                         <input readonly type="number" id="aplNumber" value="40" />
-                        <span class="btn-down" href="javascript:void(0);" onclick="aplDown();">-</span>
+                            <span class="btn-down" href="javascript:void(0);" onclick="aplDown();">
+                                -
+                            </span>
                         </span>
                     </div>
                 </div>

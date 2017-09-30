@@ -24,7 +24,8 @@ html {
 }
 
 body {
-    background: #f6f6f6
+    background: #f6f6f6;
+    -webkit-overflow-scrolling: touch;
 }
 
 body::-webkit-scrollbar {
