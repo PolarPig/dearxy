@@ -33,6 +33,10 @@ body::-webkit-scrollbar {
     height: 0px
 }
 
+.main {
+    margin-bottom: 13.067vw;
+}
+
 
 /* a,
 a:link,

@@ -12,7 +12,7 @@
             background-color: #a29e9e;
             font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
         }
-        
+
         .colorChange {
             padding: 10px;
             font-size: 20px;
@@ -221,15 +221,16 @@
                                 </el-form>
                             </el-col>
                         </el-row>
-
                     </el-row>
+                    <el-button v-on:click="onSubmit()" type="primary">保存</el-button>
                 </el-card>
             </el-col>
         </el-row>
+        <xue>cnn</xue>
     </div>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/1.4.2/index.js"></script>
-    <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
     <script type="text/javascript">
         //ViewModel
         var vue = new Vue({
@@ -247,12 +248,13 @@
                     desc: ''
                 },
                 methods: {
-                    onSubmit() {
-                        console.log('submit!');
-                    }
+                    // onSubmit: function () {
+                    //     console.log('submit!');
+                    // }
                 }
             }
         });
+        console.log(vue.methods.onSubmit);
     </script>
     <!-- http://blog.csdn.net/u012907049/article/details/70237457
     http://www.cnblogs.com/guokun/p/6068652.html

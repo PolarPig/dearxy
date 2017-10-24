@@ -63,7 +63,7 @@
 }
 
 .body input {
-    border: .1vw solid #999;
+    border: 1px solid #999;
     width: 62.933333vw;
     height: 8.5333333vw;
     border-radius: 5px;
